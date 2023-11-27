@@ -198,8 +198,13 @@ function FormularioEditarMeuPerfil({ open, nomePerfil, tagPerfil, cidadePerfil, 
     const handleInputChange = (e) => {
         e.preventDefault()
         const {value, name} = e.target
-        setFormValues({...formValues, [name]:value})
+        console.dir( e.target.selectedOptions[0].textContent)
+        setFormValues(
+            {...formValues, [name]:value, nome:e.target.selectedOptions[0].textContent,}
+            )
     }
+
+    console.log(formValues)
 
     return (
         <>
@@ -258,21 +263,21 @@ function FormularioEditarMeuPerfil({ open, nomePerfil, tagPerfil, cidadePerfil, 
                     ></InputGlobal>
                 </div>
 
-                {/* <div className='containerInputs'>
+                <form className='containerInputs'>
 
                     <div className='containerInputs__labelCidadesInput'>
                         <label>
                             Estado
                         </label>
-                        <input className='containerInputs__inputListaEstados' list='states' placeholder='Selecione...' onChange={(e) => setEstado(e.target.value)} value={estado} />
-                            <InputEstados id={'states'} onChange={handleInputChange}/>
+                        <input type='text' className='containerInputs__inputListaEstados' list='states' placeholder='Selecione...' onChange={(e) => setEstado(e.target.value)} value={estado} />
+                            <InputEstados id={'states'} onChange={handleInputChange} />
                     </div>
 
                     <div className='containerInputs__labelCidadesInput'>
                         <label>
                             Cidade
                         </label>
-                        <input className='containerInputs__inputListaCidades' list='cities' placeholder='Selecione...' onChange={(e) => setCidade(e.target.value)} value={cidade} />
+                        <input type='text' className='containerInputs__inputListaCidades' list='cities' placeholder='Selecione...' onChange={(e) => setCidade(e.target.value)} value={cidade} />
                             <InputCidades id={'cities'} onChange={handleInputChange} state={formValues.state}/>
                     </div>
 
@@ -280,11 +285,11 @@ function FormularioEditarMeuPerfil({ open, nomePerfil, tagPerfil, cidadePerfil, 
                         <label>
                             Bairro
                         </label>
-                        <input className='containerInputs__inputListaBairros' list='district' placeholder='Selecione...' onChange={(e) => setBairro(e.target.value)} value={bairro} />
+                        <input type='text' className='containerInputs__inputListaBairros' list='district' placeholder='Selecione...' onChange={(e) => setBairro(e.target.value)} value={bairro} />
                             <InputBairros id={'district'} onChange={handleInputChange} city={formValues.city}/>
                     </div>
 
-                </div> */}
+                </form>
 
                 <div className='formularioAtualizarPerfil__atualizarDescricao'>
                     <label>

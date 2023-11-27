@@ -26,6 +26,12 @@ export const UserProvider = ({children}) => {
 
     const [idPerfil, setIdPerfil] = useState(0)
 
+    //Location
+    const [ siglaEstado, setSiglaEstado ] = useState('')
+    const [ idCidade, setIdCidade ] = useState(0)
+
+    
+
     const userData = {
         id: id,
         nome: nome,
@@ -75,6 +81,10 @@ console.log(idPerfil, accessToken)
             setNomeTagServico,
             idPerfil,
             setIdPerfil,
+            siglaEstado,
+            setSiglaEstado,
+            idCidade,
+            setIdCidade
         }
         }>
         {children}

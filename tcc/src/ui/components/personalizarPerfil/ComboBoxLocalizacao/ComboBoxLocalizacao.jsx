@@ -33,7 +33,7 @@ const ComboBoxLocalizacao = ({onChange}) => {
             <p className='text'>Estados:</p>
 
             <input value={estado} onChange={(e) => setEstado(e.target.value)} list='states' className='inputNone' placeholder='Selecione um Estado'/>
-            <InputEstados id={states} onChange={handleInputChange}/>
+            <InputEstados id={'states'} onChange={handleInputChange}/>
 
         </div>
         
@@ -42,7 +42,7 @@ const ComboBoxLocalizacao = ({onChange}) => {
             <p className='text'>Cidades:</p>
 
             <input onChange={(e) => setCidade(e.target.value)} list='cities' className='inputNone' placeholder='Selecione uma Cidade'/>
-            <InputCidades id={cities} onChange={handleInputChange} state={formValues.state}/>
+            <InputCidades id={'cities'} onChange={handleInputChange} state={formValues.state}/>
 
         </div>
         
@@ -52,7 +52,7 @@ const ComboBoxLocalizacao = ({onChange}) => {
             <p className='text'>Bairros:</p>
 
             <input onChange={(e) => setBairro(e.target.value)}  className='inputNone' list='neighborhoods' placeholder='Selecione um Bairro'/>
-            <InputBairros id={neighborhoods} onChange={handleInputChange} city={formValues.city} />
+            <InputBairros id={'neighborhoods'} onChange={handleInputChange} city={formValues.city} />
         </div>
         
     </div>

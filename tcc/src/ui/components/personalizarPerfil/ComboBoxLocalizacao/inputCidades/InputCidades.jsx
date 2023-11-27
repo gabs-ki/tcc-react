@@ -19,7 +19,7 @@ const [cidades, setCidades] = useState([])
             <option value="">Selecione uma cidade...</option>
             {
                 cidades.map((item) => (
-                    <option key={item.id} value={item.id}>
+                    <option key={item.id} value={item.id} data-nome={item.nome}>
                         {item.nome}
                     </option>
                 ))
