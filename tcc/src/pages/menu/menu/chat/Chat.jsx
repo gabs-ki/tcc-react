@@ -5,10 +5,35 @@ import ImagemPerfil from './images/imagemPerfil.png'
 import Menu from './images/icone_mais.svg'
 import Enviar from './images/enviar.svg'
 import { Link } from 'react-router-dom'
+import io  from 'socket.io-client'
 
 import ModalChat from '../../../../ui/components/menu/conversas/ModalChat/ModalChat'
+import blogFetch from '../../../../data/services/api/ApiService'
+import { useEffect } from 'react'
 
-const Chat = () => {
+const Chat = ({chatOpen, setChatOpen, listaUsuarios, idChat}) => {
+
+    const [ listaMensagens, setListaMensagens ] = useState([])
+
+    useEffect(() => {
+        ioChat()
+    }, [])
+
+    const ioChat = async () => {
+        
+        try {
+
+            const response = await blogFetch.get(`/chat/${idChat}`)
+
+            console.log(response)
+
+            setListaMensagens(response.data)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -20,9 +45,11 @@ const Chat = () => {
 
                 <div className='container_header'>
                     <div className='container_perfil'>
-                        <Link to={"/menu/conversas"}>
-                            <img src={SetaEsquerda} alt="" />
-                        </Link>
+                        
+                        <img src={SetaEsquerda} alt="" onClick={() => {
+                            setChatOpen(!chatOpen)
+                        }} />
+                        
                         <img className='fotoPerfil' src={ImagemPerfil} alt="" />
                         <p className='nomePerfil'>Beltrana dos Santos Silva</p>
                     </div>

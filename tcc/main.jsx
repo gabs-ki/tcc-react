@@ -3,9 +3,9 @@
  * Data Inicio: 04-09-2023
  * Data Fim: X
  * 
- * Commits: Rotas Definidas v1.0, Estruturação de Diretórios Concluída, 
- * Componentes Iniciados v2.45, Responsividade v0.7, Funcionalidades v0.21,
- * Integração Iniciada v0.33, Contexto Aplicado, Lista Icones v0.4, Conflito v0.4, Ajustes v0.3,
+ * Commits: Rotas Definidas v1.1, Estruturação de Diretórios Concluída, 
+ * Componentes Iniciados v2.46, Responsividade v0.7, Funcionalidades v0.21,
+ * Integração Iniciada v0.34, Contexto Aplicado, Lista Icones v0.4, Conflito v0.4, Ajustes v0.4,
  *  
  * 
 *****************/
@@ -237,18 +237,6 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/menu/conversas/publicar/",
-            element: validarLogin(<Publicar />),
-            errorElement: <NaoEncontrado />
-          }
-        ]
-      },
-      {
-        path: "/menu/conversas/chat",
-        element: validarLogin(<Chat />),
-        errorElement: <NaoEncontrado />,
-        children: [
-          {
-            path: "/menu/conversas/chat/publicar/",
             element: validarLogin(<Publicar />),
             errorElement: <NaoEncontrado />
           }

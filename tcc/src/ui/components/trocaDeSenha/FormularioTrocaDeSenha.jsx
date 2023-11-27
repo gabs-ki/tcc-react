@@ -9,7 +9,7 @@ import BotaoFormularioGlobal from '../global/BotaoFormularioGlobal/BotaoFormular
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 
-function FormularioTrocaDeSenha({id}) {
+function FormularioTrocaDeSenha({id, accessToken, modalCarregar}) {
 
   const errRef = useRef()
 
@@ -23,57 +23,17 @@ function FormularioTrocaDeSenha({id}) {
   const [ pwdMatch, setPwdMatch ] = useState('')
   const [ pwdMatchValid, setPwdMatchValid ] = useState(false)
 
-  {/*Validação Pelo Console*/
-    //   //senha atual
-    // useEffect(() => {
-    //   console.log(pwdAtual)
-    // },[pwdAtual])
-
-
-    // useEffect(() => {
-
-    //   //valida se a senha é cumpre os requisitos
-    //   const resultAtual = PWD_REGEX.test(pwdAtual)
-    //   const resultNova = PWD_REGEX.test(pwdNova)
-    //   const resultMatch = PWD_REGEX.test(pwdMatch)
-      
-    //   //joga o resultado na senha valida state
-    //   setPwdAtualValid(resultAtual)
-    //   setPwdNovaValid(resultNova)
-      
-
-    //   //valida se as duas senhas tem valor igual
-    //   const match = pwdNova === pwdMatch
-
-    //   setPwdMatchValid(match)
-      
-    //   //joga no console os valores true ou false
-    //   console.log({senhaAtual: resultAtual, senhaNova: resultNova, senhaMatch: resultMatch, senhasCombinam: match})
-
-
-    // },[pwdAtual, pwdNova, pwdMatch])
-
-    
-    
-    // useEffect(() => {
-
-    //   //seta qualquer mensagem de erro que tiver
-    //   setErrMsg('')
-
-    // }, [ pwdAtual, pwdMatch])
-  }/*Validação Pelo Console*/
 
   const enviarSenha = async (event) => {
-    event.preventDefault()
-    
 
+    event.preventDefault()
+  
     const v2 = PWD_REGEX.test(pwdNova)
     const v3 = PWD_REGEX.test(pwdMatch)
 
+    
     if (!v2 || !v3) {
-      // console.log(v1)
-      // console.log(v2)
-      // console.log(v3)
+
       setErrMsg("Os campos precisam cumprir os requisitos")
       return
       
@@ -95,34 +55,40 @@ function FormularioTrocaDeSenha({id}) {
 
     } else {
 
+      modalCarregar(true, 0 , '/login')
+
       try {
-        const response = await blogFetch.put("/usuario/atualizar_senha", {
-          id: id,
+
+        const response = await blogFetch.put("/configuracao/alterar_senha", {
+          id_usuario: id,
           senha: pwdNova
+        },
+        {
+          headers: {
+            'x-access-token': accessToken
+          }
         })
 
-        navigate("/login")
-
+        modalCarregar(true, response.status, '/login')
 
       } catch (error) {
 
         if (!error.response) {
 
-          setErrMsg('Sem Resposta Do Servidor')
+          modalCarregar(true, error.response.status, '/login')
 
         } else if (error.response.status === 400) {
 
-          console.log(error)
 
-          setErrMsg('Usuario já cadastrado')
+          modalCarregar(true, error.response.status, '/login')
   
         } else if (error.response.status === 404) {
 
-          setErrMsg('Usuário não encontrado')
+          modalCarregar(true, error.response.status, '/login')
   
         } else if (error.response.status === 401) {
 
-          setErrMsg('Não Autorizado')
+          modalCarregar(true, error.response.status, '/login')
   
         } else {
           setErrMsg('O Envio Falhou. Entre em contato com nosso suporte')

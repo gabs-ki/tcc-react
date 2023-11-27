@@ -14,7 +14,12 @@
     "axios": "^1.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^6.20.0",
+=======
+    "react-router-dom": "^6.17.0",
+    "socket.io-client": "^4.7.2",
+>>>>>>> 6045d12fdc2811632f7cd58fce4a94f8de47f798
     "swiper": "^10.3.1"
   },
   "devDependencies": {

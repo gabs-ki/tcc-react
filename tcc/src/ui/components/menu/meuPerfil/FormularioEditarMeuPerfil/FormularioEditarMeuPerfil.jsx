@@ -53,19 +53,19 @@ function FormularioEditarMeuPerfil({ open, nomePerfil, tagPerfil, cidadePerfil, 
 
     }, [images])
 
-    console.log({
-        accessToken: accessToken,
-        id: id,
-        estado: estado,
-        cidade: cidade,
-        bairro: bairro,
-        descricao: descricao,
-        nome: nome,
-        tagPerfilEditado: tagPerfilEditado,
-        tags: [tags],
-        localizacao: localizacao,
-        fotoPerfil: fotoPerfil
-    })
+    // console.log({
+    //     accessToken: accessToken,
+    //     id: id,
+    //     estado: estado,
+    //     cidade: cidade,
+    //     bairro: bairro,
+    //     descricao: descricao,
+    //     nome: nome,
+    //     tagPerfilEditado: tagPerfilEditado,
+    //     tags: [tags],
+    //     localizacao: localizacao,
+    //     fotoPerfil: fotoPerfil
+    // })
 
     function onImageChange(e) {
         setImage([...e.target.files])
@@ -114,49 +114,53 @@ function FormularioEditarMeuPerfil({ open, nomePerfil, tagPerfil, cidadePerfil, 
 
     const salvarNovosDadosPerfil = async () => {
 
-        funcLoading(true, 0, '/explorar')
+        
 
         const tag = formatarTags()
 
         const foto = await salvarFoto()
 
+        funcLoading(true, 0, '/explorar')
+
         if (foto == false) {
 
             try {
-                // const response = await blogFetch.put('/usuario/editar_perfil', {
-                //     id_usuario: id,
-                //     id_localizacao: localizacao,
-                //     bairro: bairro,
-                //     cidade: cidade,
-                //     estado: estado,
-                //     nome: nome,
-                //     descricao: descricao,
-                //     foto: fotoPerfil,
-                //     nome_de_usuario: tagPerfilEditado,
-                //     tags: tag
-                // }, {
-                //     headers: {
-                //         'x-access-token': accessToken
-                //     }
-                // })
+                // const response = { status: 200}
+                const response = await blogFetch.put('/usuario/editar_perfil', {
+                    id_usuario: id,
+                    id_localizacao: localizacao,
+                    bairro: bairro,
+                    cidade: cidade,
+                    estado: estado,
+                    nome: nome,
+                    descricao: descricao,
+                    foto: fotoPerfil,
+                    nome_de_usuario: tagPerfilEditado,
+                    tags: tag
+                }, {
+                    headers: {
+                        'x-access-token': accessToken
+                    },
 
-                console.log(response)
-                setStatusResponse(200)
+                })
+                
 
-                funcLoading(true, 200, '/menu/explorar')
+                reloadUser()
+
+                funcLoading(true, response.status, '/menu/explorar')
+
 
             } catch (error) {
 
-                funcLoading(true, error.status, '/menu/explorar')
+                funcLoading(true, error.response.status, '/menu/explorar')
                 
             }
 
-            funcLoading(true, statusResponse, '')
-
-            console.log('sem foto')
-            reloadUser()
 
         } else {
+
+            funcLoading(true, 0, '/explorar')
+
             setFotoPerfil(foto)
 
             try {
@@ -177,15 +181,20 @@ function FormularioEditarMeuPerfil({ open, nomePerfil, tagPerfil, cidadePerfil, 
                     }
                 })
 
-                console.log(response)
+                reloadUser()
+
+                funcLoading(true, response.status, '/menu/explorar')
+  
 
             } catch (error) {
 
+                funcLoading(true, error.response.status, '/menu/explorar')
                 console.log('erro')
             }
 
             console.log('com foto')
-            reloadUser()
+            
+            
 
         }
 

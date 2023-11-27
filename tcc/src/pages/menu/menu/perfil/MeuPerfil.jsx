@@ -18,6 +18,7 @@ function MeuPerfil() {
   const [ visivel, setVisivel ] = useState(false)
   const [ erro, setErro ] = useState(0)
   const [ caminho, setCaminho ] = useState("")
+  const [ abrirFechar, setAbrirFechar ] = useState(false)
   
 
   const { accessToken } = useContext(UserContext)
@@ -38,7 +39,7 @@ function MeuPerfil() {
       })
 
       setUser(response.data)
-      console.log(response.data)
+      // console.log(response.data)
 
       if (response.data.usuario.tags === undefined) {
         console.log('a')
@@ -72,26 +73,17 @@ function MeuPerfil() {
     }
   }
 
-  const modalCarregar = (visivel, erro, caminho) => {
+  const modalCarregar = (visivel, erro, caminho, abrirFechar) => {
+
     setVisivel(visivel)
 
     setErro(erro)
 
     setCaminho(caminho)
 
+    setAbrirFechar(abrirFechar)
+
   }
-
-  useEffect(() => {
-    console.log(visivel)
-  },[visivel])
-
-  useEffect(() => {
-    console.log(erro);
-  },[erro])
-
-  useEffect(() => {
-    console.log(caminho);
-  },[caminho])
 
   useEffect(() => {
     getUsuario()
@@ -107,6 +99,9 @@ function MeuPerfil() {
         caminho={caminho}
         erro={erro}
         visivel={visivel}
+        setVisivel={setVisivel}
+        abrirFechar={open}
+        setAbrirFechar={setOpen}
       ></ModalCarregarGlobal>
       
 
