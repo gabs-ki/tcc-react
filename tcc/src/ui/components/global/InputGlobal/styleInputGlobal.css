@@ -71,3 +71,11 @@
     background-color: var(--textInput-color);
 }
 
+.iconEyePassword {
+    position: relative;
+    left: -25px;
+    top: 2px;
+    height: 12px;
+    cursor: pointer;
+}
+

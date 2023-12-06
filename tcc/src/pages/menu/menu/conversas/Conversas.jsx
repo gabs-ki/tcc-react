@@ -21,13 +21,14 @@ function Conversas() {
   const [listaContatos, setListaContatos] = useState([])
   const [chatOpen, setChatOpen] = useState(false)
   const [socket, setSocket] = useState(null)
+  const [teste, setTest] = useState(location.state)
   const [idChat, setIdChat] = useState()
   const [busca, setBusca] = useState('')
 
-  const [ nomeOutroUsuario, setNomeOutroUsuario ] = useState('')
-  const [ fotoOutroUsuario, setFotoOutroUsuario ] = useState('')
+  const [nomeOutroUsuario, setNomeOutroUsuario] = useState('')
+  const [fotoOutroUsuario, setFotoOutroUsuario] = useState('')
 
-  const [ user, setUser ] = useState()
+  const [user, setUser] = useState()
 
   const [listaMensagens, setListaMensagens] = useState([])
 
@@ -35,16 +36,62 @@ function Conversas() {
     console.log(listaContatos)
   }, [listaContatos])
 
-  
-
   const setarSocket = (socket, setarSocket) => {
     setSocket(socket)
   }
 
   useEffect(() => {
+    console.log(teste)
+  }, [teste])
 
-    if(location.state != null || location.state != undefined) {
-      
+
+
+  useEffect(() => {
+
+    const socketResponse = io.connect('https://socket-costurie.webpubsub.azure.com', {
+      path: "/clients/socketio/hubs/Hub"
+    })
+
+    console.log(socketResponse)
+
+    setSocket(socketResponse)
+
+    const list = socketResponse.emit('listContacts', id)
+
+    list.on('receive_contacts', data => {
+      if (data.id_user == id) {
+        console.log(data)
+        setListaContatos(data.users)
+      }
+    })
+
+  }, [])
+
+
+
+  const listarMensagens = () => {
+
+    if (socket != undefined) {
+      const chat = socket.emit('listMessages', idChat)
+
+      chat.on('receive_message', data => {
+        if (data.id_chat == idChat) {
+          setListaMensagens(data.mensagens)
+        }
+
+      })
+    }
+
+  }
+
+  useEffect(() => {
+
+    const socketResponse = io.connect('https://socket-costurie.webpubsub.azure.com', {
+      path: "/clients/socketio/hubs/Hub"
+    })
+
+    if (location.state != null || location.state != undefined) {
+
       const idPerfilSelecionado = location.state.id_usuario_perfil
       const nomePerfilSelecionado = location.state.nome_usuario_perfil
       const fotoPerfilSelecionado = location.state.foto_usuario_perfil
@@ -61,62 +108,30 @@ function Conversas() {
           "foto": fotoPerfilSelecionado
         }
       ]
-  
-      if (idPerfilSelecionado != null || nomePerfilSelecionado != null || fotoPerfilSelecionado != null ) {
-        console.log(listaPerfis)
-        criarChat(listaPerfis)
-      }
 
-    }
-   
+      if (idPerfilSelecionado != null || nomePerfilSelecionado != null || fotoPerfilSelecionado != null) {
 
-  }, [])
+        console.log(idPerfilSelecionado)
 
-  useEffect(() => {
 
-    const socketResponse = io.connect('https://socket-costurie.webpubsub.azure.com', {
-      path: "/clients/socketio/hubs/Hub"
-    })
 
-    console.log(socketResponse)
+        if (socketResponse != null) {
+          const chat = socketResponse.emit('createRoom', JSON.stringify({ users: listaPerfis }))
 
-    setSocket(socketResponse)
 
-    const list = socketResponse.emit('listContacts', id)
+          chat.on('newChat', data => {
+            console.log(data)
+          })
 
-    list.on('receive_contacts', data => {
-      if(data.id_user == id){
-        setListaContatos(data.users)
-      }
-    })
-
-  }, [])
-
-  const criarChat = (perfis) => {
-    if (socket != undefined) {
-      const chat = socket.emit('createRoom', { users: perfis })
-
-      chat.on('newChat', data => {
-        console.log(data)
-      })
-
-    }
-  }
-
-  const listarMensagens = () => {
-
-    if (socket != undefined) {
-      const chat = socket.emit('listMessages', idChat)
-
-      chat.on('receive_message', data => {
-        if(data.id_chat == idChat) {
-          setListaMensagens(data.mensagens)
         }
 
-      })
+
+      }
+
     }
 
-  }
+
+  }, [teste])
 
   useEffect(() => {
 
@@ -193,15 +208,46 @@ function Conversas() {
                           setChatOpen(!chatOpen)
                           setIdChat(item.id_chat)
 
-                          setFotoOutroUsuario(item.users[0].foto)
-                          setNomeOutroUsuario(item.users[0].nome)
-                        }}>
-                          <img className='foto' src={item.users[0].foto} alt="" />
+                          item.users.map((use) => {
 
-                          <div className='container_textos'>
-                            <p className='nome'>{item.users[0].nome}</p>
-                            {/* <p className='ultimaMensagem'>Boa noite</p> */}
-                          </div>
+                            if (use.id != id) {
+                              setFotoOutroUsuario(use.foto)
+                              setNomeOutroUsuario(use.nome)
+                            }
+
+                          })
+
+
+                        }}>
+
+                          {
+
+                            item.length == 0 ? (
+                              null
+                            ) : (
+
+                              item.users.map((use) => {
+
+                                if (use.id != id) {
+                                  return (
+                                    <>
+
+                                      <img className='foto' src={use.foto} alt="" />
+
+                                      <div className='container_textos'>
+                                        <p className='nome'>{use.nome}</p>
+
+                                      </div>
+
+                                    </>
+                                  )
+                                }
+
+                              })
+
+                            )
+
+                          }
 
                           <div className='container_status'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 10 10" fill="none">

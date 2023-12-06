@@ -81,7 +81,7 @@ const Chat = ({ listaMensagens, socket, chatOpen, setChatOpen, listaUsuarios, id
                     <div className='container_header'>
                         <div className='container_perfil'>
 
-                            <img src={SetaEsquerda} alt="" onClick={() => {
+                            <img className='iconeVoltarConversas' src={SetaEsquerda} alt="" onClick={() => {
                                 setChatOpen(!chatOpen)
                             }} />
 

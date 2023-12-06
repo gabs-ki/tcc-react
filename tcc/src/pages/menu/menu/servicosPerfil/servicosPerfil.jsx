@@ -215,7 +215,7 @@ const ServicosPerfil = () => {
 
                     <CardPerfil
                       onClick={() => {
-                        setIdPerfil(item.id_usuario)
+                        setIdPerfil(item.id)
 
                         navigator('/menu/servicos/perfil/perfil-selecionado')
                       }}

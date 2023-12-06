@@ -19,6 +19,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 16px;
+    width: 100%;
 }
 
 .containerDados__containerTextosMeuPerfil {
@@ -27,6 +28,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     height: 150px;
+    width: 100%;
 }
 
 .nomeUsuarioComentario {
@@ -36,15 +38,17 @@
   top: -15px;
 }
 
-.mensagemComentario {
+.mensagemComentarioMeuPerfil {
     font-size: 1rem;
     font-weight: 300;
     position: relative;
     top: -30px;
-    max-width: 700px;
-    inline-size: 600px;
+    width: 100%;
+    max-width: 500px;
+    inline-size: 500px;
     overflow-wrap: break-word;
     flex-wrap: wrap;
+    color: var(--contrast-color);
 }
 
 .mensagemComentarioReduzido {
@@ -85,11 +89,12 @@
     cursor: pointer;
 }
 
-.botaoOpcoesComentario {
+.botaoOpcoesComentarioMeuPerfil {
     display: none;
+    color: var(--contrast-color);
 }
 
-.comentarioPublicacaoMeuPerfil:hover .botaoOpcoesComentario {
+.comentarioPublicacaoMeuPerfil:hover .botaoOpcoesComentarioMeuPerfil {
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -101,7 +106,7 @@
     width: 20px;
 }
 
-.botaoOpcoesComentarioShow {
+.botaoOpcoesComentarioShowMeuPerfil {
     display: initial;
 }
 
@@ -133,23 +138,25 @@
 .textoExcluirComentario {
     width: 100%;
     padding: 12px;
+    color: var(--contrast-color);
 }
 
 .textoEditarComentario {
     width: 100%;
     padding: 12px;
+    color: var(--contrast-color);
 }
 
 .textoDenunciarComentario {
     width: 100%;
     padding: 12px;
+    color: var(--contrast-color);
 }
 
 .opcaoExcluirComentario:hover {
     background-color: #A09CA2;
     width: 100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-radius: 20px;
     cursor: pointer;
 }
 

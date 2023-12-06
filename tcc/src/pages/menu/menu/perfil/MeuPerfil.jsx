@@ -387,7 +387,7 @@ function MeuPerfil() {
                         accessToken={accessToken}
                         idPublicacao={item.id}
                         nomePublicacao={item.titulo}
-                    
+                        descricaoPublicacao={item.descricao}
                         anexosPublicacao={item.anexos}
                       ></CardPublicacaoMeuPerfil>
                     )

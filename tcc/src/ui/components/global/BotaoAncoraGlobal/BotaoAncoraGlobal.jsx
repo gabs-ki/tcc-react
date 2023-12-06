@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import "./styleBotaoAncoraGlobal.css"
  
 const BotaoAncoraGlobal = ({titulo, url, alternado, onClick, like}) => {
-  if (alternado) {
+  if (alternado || like) {
     return <div className="botaoAlternativo__primary" onClick={onClick}>
             <Link to={url}> {titulo} </Link>
           </div>
