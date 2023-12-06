@@ -313,10 +313,10 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
 
     const listaAnexos = []
 
-    if (anexosPublicacao.length == 0) {
+    if (imageURL.length == 0) {
       return false
     } else {
-      anexosPublicacao.map((item) => {
+      imageURL.map((item) => {
         listaAnexos.push({
           conteudo: item
         })
@@ -334,6 +334,7 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
           'x-access-token': accessToken
         }
       })
+      setModalOpen(!isOpen)
       navigate('/menu/explorar')
 
     } catch (error) {
@@ -368,6 +369,14 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
 
 
     if (titulo != '' && descricao != '' && tagsAlteradas.length != 0 && arrayImagesUrl.length != 0) {
+
+      console.log(arrayImagesUrl)
+      console.log(titulo)
+      console.log(descricao)
+      console.log(tagsAlteradas)
+      console.log(idPublicacao)
+      console.log(idUsuario)
+
 
 
       try {

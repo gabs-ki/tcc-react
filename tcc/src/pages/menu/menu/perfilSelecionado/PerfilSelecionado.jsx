@@ -22,6 +22,10 @@ function PerfilSelecionado() {
 
   const [perfil, setPerfil] = useState()
 
+  useEffect(() => {
+    console.log(idPerfil)
+  },[idPerfil])
+
   const getPerfil = async () => {
     try {
       const response = await blogFetch.get(`/usuario/meu_perfil/${idPerfil}`, {

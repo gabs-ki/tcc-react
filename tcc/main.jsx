@@ -79,7 +79,7 @@ const validarLogin = (elemento) => {
 
 const validarId = (elemento) => {
 
-  if (id === null || isNaN(id) || id == "") {
+  if (id === null || isNaN(id)) {
 
     return (
       <Navigate replace to={"/login"} />
@@ -97,7 +97,7 @@ const validarId = (elemento) => {
 
 const redirecionarMenu = () => {
 
-  if (id === null || isNaN(id) || accessToken === null || accessToken == "" || id == "") {
+  if (id === null || isNaN(id) || accessToken === null) {
 
     return (
       <Navigate replace to={"/login"} />

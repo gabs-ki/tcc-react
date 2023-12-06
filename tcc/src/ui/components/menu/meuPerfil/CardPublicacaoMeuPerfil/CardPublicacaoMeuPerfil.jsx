@@ -94,10 +94,6 @@ function CardPublicacaoMeuPerfil({ idUsuario, idPublicacao, nomePublicacao, desc
           {nomePublicacao}
         </p>
 
-        <p className='cardPublicacaoMeuPerfil__descricaoUsuario'>
-          {descricaoPublicacao}
-        </p>
-
       </div>
     </>
   )

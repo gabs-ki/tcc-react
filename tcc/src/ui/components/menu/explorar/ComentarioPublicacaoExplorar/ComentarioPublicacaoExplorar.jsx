@@ -8,7 +8,6 @@ function ComentarioPublicacaoExplorar({ pegarComentarios, accessToken, fotoUsuar
 
     const [verMais, setVerMais] = useState(false)
 
-    console.log(idComentario)
 
     const apagarComentario = async () => {
         try {
@@ -42,16 +41,11 @@ function ComentarioPublicacaoExplorar({ pegarComentarios, accessToken, fotoUsuar
 
                             mensagemComentario.length < 50 ? (
 
-                                <p className='mensagemComentario'>{mensagemComentario}</p>
+                                <p className='mensagemComentarioExplorar'>{mensagemComentario}</p>
 
                             ) : (
 
                                 mensagemComentario.length > 50 ? (
-
-                                    // console.log({
-                                    //     tes: `S${mensagemComentario.slice(0, 50)}`
-                                    // })
-
 
                                     verMais == false ? (
 
@@ -68,7 +62,7 @@ function ComentarioPublicacaoExplorar({ pegarComentarios, accessToken, fotoUsuar
 
                                 ) : (
 
-                                    <p className="mensagemComentario">{mensagemComentario} </p>
+                                    <p className="mensagemComentarioExplorar">{mensagemComentario} </p>
 
 
                                 )
@@ -94,7 +88,7 @@ function ComentarioPublicacaoExplorar({ pegarComentarios, accessToken, fotoUsuar
 
                         <div>
 
-                            <div className='tes' onClick={() => {
+                            <div className='modalEscuroExplorar' onClick={() => {
                                 setOpcoesComentario(!opcoesComentario)
                             }}></div>
 

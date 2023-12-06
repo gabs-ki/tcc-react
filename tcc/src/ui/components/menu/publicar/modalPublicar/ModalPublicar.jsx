@@ -90,7 +90,7 @@ const ModalPublicar = ({modalCarregar}) => {
                 )
 
                 console.log(response)
-                modalCarregar(true, response.status, '/menu/explorar', 'Publicação Inserida com sucesso.')
+                modalCarregar(true, response.status, '/menu', 'Publicação Inserida com sucesso.')
                 
             } catch (error) {
                 console.log(error)

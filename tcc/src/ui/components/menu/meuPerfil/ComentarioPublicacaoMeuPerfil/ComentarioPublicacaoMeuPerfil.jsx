@@ -8,7 +8,7 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
     const [verMais, setVerMais] = useState(false)
 
-    console.log(idComentario)
+
 
     const apagarComentario = async () => {
         try {
@@ -42,16 +42,11 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                             mensagemComentario.length < 50 ? (
 
-                                <p className='mensagemComentario'>{mensagemComentario}</p>
+                                <p className='mensagemComentarioMeuPerfil'>{mensagemComentario}</p>
 
                             ) : (
 
                                 mensagemComentario.length > 50 ? (
-
-                                    // console.log({
-                                    //     tes: `S${mensagemComentario.slice(0, 50)}`
-                                    // })
-
 
                                     verMais == false ? (
 
@@ -61,14 +56,14 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                                     ) : (
 
-                                        <p className="mensagemComentario">{mensagemComentario} <b onClick={() => {
+                                        <p className="mensagemComentarioMeuPerfil">{mensagemComentario} <b onClick={() => {
                                             setVerMais(!verMais)
                                         }} className='botaoVerMenosComentarioMeuPerfil'> ver menos</b></p>
                                     )
 
                                 ) : (
 
-                                    <p className="mensagemComentario">{mensagemComentario} </p>
+                                    <p className="mensagemComentarioMeuPerfil">{mensagemComentario} </p>
 
 
                                 )
@@ -85,7 +80,7 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                 <div onClick={() => {
                     setOpcoesComentario(!opcoesComentario)
-                }} className={`botaoOpcoesComentario ${opcoesComentario == true ? 'botaoOpcoesComentarioShow' : 'botaoOpcoesComentario'}`}>
+                }} className={`botaoOpcoesComentarioMeuPerfil ${opcoesComentario == true ? 'botaoOpcoesComentarioShowMeuPerfil' : 'botaoOpcoesComentarioMeuPerfil'}`}>
                     ...
                 </div>
 
@@ -94,7 +89,7 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                         <div>
 
-                            <div className='tes' onClick={() => {
+                            <div className='modalEscuroExplorar' onClick={() => {
                                 setOpcoesComentario(!opcoesComentario)
                             }}></div>
 
@@ -113,41 +108,19 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                                         </div>
 
-                                        <div onClick={() => {
-
-                                        }} className='opcaoEditarComentario'>
-
-                                            <p className='textoEditarComentario'>
-                                                Editar comentário
-                                            </p>
-
-                                        </div>
 
                                     </div>
                                 ) : (
                                     <div className="modalOpcoesComentario">
-                                        <div onClick={
-                                            () => {
 
-                                            }
-                                        } className='opcaoDenunciarComentario'>
-
-                                            <p className='textoDenunciarComentario'>
-                                                Denunciar comentário
-                                            </p>
-
-                                        </div>
-
-
+                                        <p className='textoDenunciarComentario'>
+                                            Sem opções disponiveis.
+                                        </p>
 
                                     </div>
                                 )
                             }
                         </div>
-
-
-
-
 
                     ) : (
                         null
