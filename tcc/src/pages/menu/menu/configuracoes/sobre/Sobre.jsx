@@ -1,31 +1,32 @@
 import React from 'react'
 import './styleSobre.css'
 import setaEsquerda from '../images/setaEsquerda.svg'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FotoPerfil from '../../../../../ui/components/global/FotoPerfil/FotoPerfil'
 
 const Sobre = () => {
   return (
     <>
-    <div className='containerSobre'>
+      <div className='containerSobre'>
 
-      <div className='containerSobre_header'>
+        <div className='containerSobre_header'>
 
-        <Link to={'/menu/configuracoes'}>
-          <img src={setaEsquerda} alt="" />
-        </Link>
+          <Link to={'/menu/configuracoes'}>
+            <img src={setaEsquerda} alt="" />
+          </Link>
           <p className='sobre'>SOBRE</p>
-          <FotoPerfil/>
+          <FotoPerfil />
 
-      </div>
+        </div>
 
-      <div className='containerSobre_main'>
+        <div className='containerSobre_main'>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae illo, esse necessitatibus in iure quae qui dolore nesciunt est rerum pariatur hic dignissimos facilis, aspernatur ex optio corrupti voluptatum cumque.
+            A Costuriê é a mais nova Startup brasileira de desenvolvimento de softwares, feita para aqueles que buscam eficácia e segurança ao contratar serviços em plataformas digitais. Tecnologia e inovação são as palavras que melhor definem a empresa.
           </p>
-      </div>
+          <p>A ideia central é criar aplicativos e sistemas capazes de suprir as demandas de segmentos do mercado com pouco desenvolvimento tecnológico, os ajudando a evoluir e se tornarem mais eficientes.</p>
+        </div>
 
-    </div>
+      </div>
     </>
   )
 }
