@@ -232,8 +232,6 @@ function FormularioRegistrar() {
         <div className='separacaoOu__linhaPreta'></div>
       </div>
 
-      <BotaoRegistrarGoogle></BotaoRegistrarGoogle>
-
       <BotaoAncoraGlobal
         titulo={'LOGIN'}
         url={'/login'}

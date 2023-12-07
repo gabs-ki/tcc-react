@@ -317,6 +317,7 @@ const FormularioPersonalizarTags = () => {
               
 
         </div>
+        
         <div className={`tagsListaFechada ${listaFechada ? "tagsListaFechada" : "tagsListaAberta"}`}>
           <span>TAGS SELECIONADAS</span>
           <div className='containerTagsLista'>

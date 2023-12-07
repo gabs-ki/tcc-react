@@ -124,7 +124,6 @@ function FormularioLogin() {
         <div className='separacaoOu__linhaPreta'></div>
       </div>
 
-      <BotaoLoginGoogle></BotaoLoginGoogle>
 
       <BotaoAncoraGlobal
         titulo={'REGISTRAR'}

@@ -1,4 +1,4 @@
-#foto__input{
+#foto__input {
     display: none;
 }
 
@@ -87,7 +87,7 @@
     z-index: 10000;
 }
 
-.foto__container{
+.foto__container {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -103,7 +103,7 @@
     background-position: center;
 }
 
-.foto__containerDois{
+.foto__containerDois {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -119,3 +119,36 @@
     background-position: center;
 }
 
+@media (max-width: 1300px) {
+    .listImgs {
+        height: 10vh;
+    }
+}
+
+@media (max-width: 1100px) {
+    .listImgs {
+        height: 10vh;
+    }
+}
+
+@media (max-width: 1000px) {
+    .listImgs {
+        height: 10vh;
+    }
+}
+
+@media (max-width: 800px) {
+    .listImgs {
+        height: 10vh;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .listImgs {
+        height: 10vh;
+    }
+
+
+
+}

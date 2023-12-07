@@ -141,3 +141,139 @@
 .setaEnviarTags {
     cursor: pointer;
 }
+
+@media (max-width: 3000px) {
+
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+    .formularioPersonalizarTags {
+        width: 100%;
+      }
+}
+
+@media (max-width: 1700px) {
+
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+    .formularioPersonalizarTags {
+        width: 100%;
+      }
+}
+
+@media (max-width: 1500px) {
+
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+  .formularioPersonalizarTags {
+    width: 100%;
+  }
+  
+}
+
+@media (max-width: 1300px) {
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+
+    .formularioPersonalizarTags__header {
+        width: 100%;
+    }
+
+    .tagsListaAberta {
+        width: 100vw;
+        height: fit-content;
+        padding: 16px;
+    }
+   
+}
+
+@media (max-width: 1100px) {
+
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+
+    .formularioPersonalizarTags__header {
+        width: 100%;
+    }
+
+    .tagsListaAberta {
+        width: 100vw;
+        height: fit-content;
+        padding: 16px;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+
+    .formularioPersonalizarTags__header {
+        width: 100%;
+    }
+
+    .tagsListaAberta {
+        width: 100vw;
+        height: fit-content;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+
+    .formularioPersonalizarTags__header {
+        width: 100%;
+    }
+
+    .tagsListaAberta {
+        width: 100vw;
+        height: fit-content;
+        padding: 16px;
+    }
+  
+}
+
+@media (max-width: 600px) {
+
+    .formularioPersonalizarTags {
+        width: 100vw;
+        left: 0%;
+        top: 0%;
+    }
+
+    .formularioPersonalizarTags__header {
+        width: 100%;
+    }
+
+    .tagsListaAberta {
+        width: 100vw;
+        height: fit-content;
+        padding: 16px;
+    }
+
+}
+
+@media (max-width: 300px) {}

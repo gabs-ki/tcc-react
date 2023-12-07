@@ -48,7 +48,12 @@ textarea {
 
 @media (max-width: 800px) {}
 
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+
+    .formulario_descricao {
+        width: 100%;
+    }
+}
 
 @media (max-width: 300px) {
     .formulario_descricao {

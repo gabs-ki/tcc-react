@@ -15,7 +15,7 @@
     border-radius: 20px;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     padding: 16px;
@@ -26,7 +26,7 @@
     padding-top: 25px;
 }
 
-.botaoEnviar{
+.botaoEnviar {
     cursor: pointer;
 }
 
@@ -35,3 +35,84 @@
     width: 40px;
     height: 40px;
 }
+
+@media (max-width: 1700px) {}
+
+@media (max-width: 1500px) {}
+
+@media (max-width: 1300px) {
+    .container {
+        height: fit-content;
+        width: 90vw;
+        padding: 8px;
+        justify-content: flex-start;
+    }
+
+    .header {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 1100px) {
+    .container {
+        height: 100vh;
+        width: 90vw;
+        padding: 8px;
+    }
+
+    .header {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        height: 90vh;
+        width: 90vw;
+        padding: 8px;
+    }
+
+    .header {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .container {
+        height: 90vh;
+        width: 90vw;
+        padding: 8px;
+    }
+
+    .header {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        height: 90vh;
+        width: 90vw;
+        overflow-y: scroll;
+        padding: 8px;
+    }
+
+    .header {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+}
+
+@media (max-width: 300px) {}

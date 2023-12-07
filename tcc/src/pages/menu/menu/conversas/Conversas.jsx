@@ -60,7 +60,6 @@ function Conversas() {
 
     list.on('receive_contacts', data => {
       if (data.id_user == id) {
-        console.log(data)
         setListaContatos(data.users)
       }
     })
@@ -111,16 +110,12 @@ function Conversas() {
 
       if (idPerfilSelecionado != null || nomePerfilSelecionado != null || fotoPerfilSelecionado != null) {
 
-        console.log(idPerfilSelecionado)
-
-
-
         if (socketResponse != null) {
           const chat = socketResponse.emit('createRoom', JSON.stringify({ users: listaPerfis }))
 
 
           chat.on('newChat', data => {
-            console.log(data)
+            
           })
 
         }
@@ -141,13 +136,11 @@ function Conversas() {
 
   useEffect(() => {
 
-    console.log(idChat)
-
     if (socket != undefined) {
       const chat = socket.emit('listMessages', idChat)
 
       chat.on('receive_message', data => {
-        console.log(data)
+     
         setListaMensagens(data.mensagens)
       })
     }
