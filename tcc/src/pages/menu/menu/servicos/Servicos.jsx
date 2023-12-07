@@ -11,11 +11,11 @@ function Servicos() {
 
   const navigator = useNavigate()
 
-  const {accessToken} = useContext(UserContext)
+  const { accessToken } = useContext(UserContext)
 
-  const {idServico, setIdServico} = useContext(UserContext)
-  const {nomeTagServico, setNomeTagServico} = useContext(UserContext)
-  
+  const { idServico, setIdServico } = useContext(UserContext)
+  const { nomeTagServico, setNomeTagServico } = useContext(UserContext)
+
   const [value, setValue] = useState(0)
 
   const [listaCategorias, setListaCategorias] = useState()
@@ -32,9 +32,9 @@ function Servicos() {
   }, [])
 
   const setServico = (id, nome) => {
-      setIdServico(id)
-      setNomeTagServico(nome)
-      navigator('/menu/servicos/perfil')
+    setIdServico(id)
+    setNomeTagServico(nome)
+    navigator('/menu/servicos/perfil')
   }
 
 
@@ -42,11 +42,11 @@ function Servicos() {
     try {
       const response = await blogFetch.get('/categoria/select_all', {
         headers: {
-          'x-access-token' : accessToken
+          'x-access-token': accessToken
         }
       })
 
-      
+
       setListaCategorias(response.data)
       console.log(response.data)
 
@@ -57,9 +57,9 @@ function Servicos() {
 
   const getTagsGeral = async () => {
     try {
-      const response = await blogFetch.get('/tag',  {
+      const response = await blogFetch.get('/tag', {
         headers: {
-          'x-access-token' : accessToken
+          'x-access-token': accessToken
         }
       })
 
@@ -73,9 +73,11 @@ function Servicos() {
   return (
     <>
 
-      <Outlet/>
-    
+      <Outlet />
+
       <div className='containerServicos'>
+
+       
 
         <div className='containerServicos__apresentacaoServicos'>
           <p>
@@ -90,7 +92,7 @@ function Servicos() {
             ></InputGlobal>
           </div>
 
-          <FotoPerfil/>
+          <FotoPerfil />
 
         </div>
 
@@ -102,11 +104,11 @@ function Servicos() {
 
           <ul className='secaoDeFiltros__listaDeFiltros'>
 
-            
+
 
             {
               listaCategorias === undefined ? (
-                  <p>Nenhuma categoria encontrada</p>
+                <p>Nenhuma categoria encontrada</p>
               ) : (
                 listaCategorias.categorias.map((item) => (
                   <li onClick={(e) => setValue(item.id)} key={item.id} className='listaDeFiltros__filtro'>
@@ -122,30 +124,30 @@ function Servicos() {
 
         <section className='containerServicos__secaoDeTags'>
           <div className='secaoTags__listaTags'>
-            
+
             {
               listaTags === undefined ? (
                 <p></p>
               ) : (
                 listaTags.tags.filter((item) => {
-                  
+
                   const buscaPequena = busca.toLowerCase()
 
                   return buscaPequena.toLowerCase() === '' ? item : item.nome.toLowerCase().includes(buscaPequena)
 
                 }).map((item) => {
 
-                 
+
 
                   if (item.id_categoria == value) {
 
                     return (
 
                       <div className='tag' onClick={() => setServico(item.id_tag, item.nome)}>
-                          <img src={item.imagem} className="imagem_Tag" />
-                          <p className='textoTag' key={item.id_tag}>{item.nome}</p>
-                        </div>
-                      
+                        <img src={item.imagem} className="imagem_Tag" />
+                        <p className='textoTag' key={item.id_tag}>{item.nome}</p>
+                      </div>
+
                     )
 
                   } else if (value == 0) {
@@ -153,19 +155,19 @@ function Servicos() {
                     return (
 
                       <div className='tag' onClick={() => setServico(item.id_tag, item.nome)}>
-                          <img src={item.imagem} className="imagem_Tag" />
-                          <p className='textoTag' key={item.id_tag}>{item.nome}</p>
-                        </div>
-                      
+                        <img src={item.imagem} className="imagem_Tag" />
+                        <p className='textoTag' key={item.id_tag}>{item.nome}</p>
+                      </div>
+
                     )
 
-                  } else if (value == 7){
+                  } else if (value == 7) {
 
                     return (
                       <div className='tag' onClick={() => setServico(item.id_tag, item.nome)}>
-                          <img src={item.imagem} className="imagem_Tag" />
-                          <p className='textoTag' key={item.id_tag}>{item.nome}</p>
-                        </div>
+                        <img src={item.imagem} className="imagem_Tag" />
+                        <p className='textoTag' key={item.id_tag}>{item.nome}</p>
+                      </div>
                     )
 
                   } else {
@@ -173,7 +175,7 @@ function Servicos() {
                       <></>
                     )
                   }
-                
+
                 })
               )
             }

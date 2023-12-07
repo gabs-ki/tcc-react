@@ -170,3 +170,133 @@
     cursor: pointer;
     border-radius: 20px;
 }
+
+@media (max-width: 1500px) {
+    .containerDados__containerTextosExplorar {    
+        width: 100%;
+    }
+
+    .mensagemComentario {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+    .botaoOpcoesComentario {
+        padding-right: 100%;
+    }
+
+
+    .modalOpcoesComentario {
+        top: 40%;
+        left: 40%;
+    }
+    
+
+}
+
+@media (max-width: 1300px) {
+    .containerDados__containerTextosExplorar {    
+        width: 100%;
+    }
+
+    .mensagemComentario {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+
+    .modalOpcoesComentario {
+        top: 50%;
+        left: 40%;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .containerDados__containerTextosExplorar {    
+        width: 100%;
+    }
+
+    .mensagemComentario {
+        width: 300px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+    .modalEscuroExplorar {
+        height: 140%;
+        max-height: 200%;
+    }
+
+    .modalOpcoesComentario {
+        top: 30%;
+        left: 40%;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .containerDados__containerTextosExplorar {    
+        width: 100%;
+    }
+
+    .mensagemComentario {
+        width: 300px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+    .modalEscuroExplorar {
+        height: 140%;
+        max-height: 200%;
+    }
+
+    .modalOpcoesComentario {
+        top: 30%;
+        left: 40%;
+    }
+
+    
+}
+
+@media (max-width: 800px) {
+    .containerDados__containerTextosExplorar {    
+        width: 100%;
+    }
+
+    .mensagemComentario {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .containerDados__containerTextosExplorar {    
+        width: 100%;
+    }
+
+    .mensagemComentario {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+
+    .modalEscuroExplorar {
+        height: 153%;
+        max-height: 200%;
+    }
+
+    .modalOpcoesComentario {
+        top: 30%;
+        left: 25%;
+    }
+}
+
+@media (max-width: 300px) {
+    
+}

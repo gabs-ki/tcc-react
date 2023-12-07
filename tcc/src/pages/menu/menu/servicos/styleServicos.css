@@ -86,7 +86,7 @@
     max-height: 65%;
     display: flex;
     padding: 16px;
-    overflow-y: auto;
+    overflow-y: scroll;
     align-items: flex-start;
     justify-content: center;
 }
@@ -97,7 +97,6 @@
     display: flex;
     justify-content: center;
     gap: 24px 32px;
-    overflow-y: auto;
     flex-wrap: wrap;
     padding: px;
 }
@@ -142,4 +141,74 @@
 .tag:hover{
     width: 225px;
     height: 145px;
+}
+
+@media (max-width: 1700px) {
+
+   
+
+}
+
+@media (max-width: 1500px) {
+
+    
+
+}
+
+@media (max-width: 1300px) {
+
+    
+
+}
+
+@media (max-width: 1100px) {
+
+    
+
+}
+
+@media (max-width: 1000px) {
+    
+}
+
+@media (max-width: 800px) {
+
+    
+
+}
+
+@media (max-width: 600px) {
+
+    .containerServicos {
+        left: 30px;
+        width: 80vw;
+    }
+
+    .containerServicos__apresentacaoServicos {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .containerServicos__secaoDeFiltros {
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding-right: 16px;
+    }
+
+    .secaoDeFiltros__listaDeFiltros {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 300px) {
+
+    
+
 }

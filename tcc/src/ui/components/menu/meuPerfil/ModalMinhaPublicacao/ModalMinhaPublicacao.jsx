@@ -465,14 +465,35 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
 
   const [like, setLike] = useState(false)
 
+  const verificarAvaliacao = async () => {
+    try {
+      console.log(idUsuario)
+      console.log(idPublicacao)
+      const response = await blogFetch.post(`/publicacao/verificar_curtida`, {
+        "id_usuario": idUsuario,
+        "id_publicacao": idPublicacao
+      }, {
+        headers: {
+          "x-access-token": accessToken
+        }
+      })
+
+      console.log(response)
+
+      setLike(response.data.curtida)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const curtirPublicacao = async () => {
     try {
       const response = await blogFetch.post(`/publicacao/curtir`, {
-        "id_usuario" : idUsuario,
-        "id_publicacao" : idPublicacao
+        "id_usuario": idUsuario,
+        "id_publicacao": idPublicacao
       }, {
         headers: {
-          "x-access-token" : accessToken
+          "x-access-token": accessToken
         }
       })
 
@@ -482,16 +503,16 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
     } catch (error) {
       console.log(error)
     }
-  } 
+  }
 
   const removerCurtida = async () => {
     try {
       const response = await blogFetch.post(`/publicacao/retirar_curtida`, {
-        "id_publicacao" : idPublicacao,
-        "id_usuario" : idUsuario
+        "id_publicacao": idPublicacao,
+        "id_usuario": idUsuario
       }, {
         headers: {
-          "x-access-token" : accessToken
+          "x-access-token": accessToken
         }
       })
 
@@ -501,7 +522,11 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
     } catch (error) {
       console.log(error)
     }
-  }
+  } 
+
+  useEffect(() => {
+    verificarAvaliacao()
+  }, [])
 
   if (isOpen) {
     return (
@@ -557,23 +582,22 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
 
                 <div className='containerImagensPublicacaoExplorar__botoesPublicacaoExplorar'>
                   <BotaoAncoraGlobal
-                  onClick={() => {
-                    if(like === false){
+                    onClick={() => {
+                      if (like === false) {
                         curtirPublicacao()
-                    } else if(like === true){
+                      } else if (like === true) {
                         removerCurtida()
-                    }
-                  }}
+                      }
+                    }}
                     titulo={'Dar Ponto'}
+                    like={like}
                   ></BotaoAncoraGlobal>
 
-                  <BotaoAncoraGlobal
-                    titulo={'Responder'}
-                  ></BotaoAncoraGlobal>
+                  
                 </div>
               </div>
 
-              <div className='formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfil'>
+              <div className='formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfilUm'>
 
                 <div className="containerDadosPublicacaoMeuPerfil__cardUsuarioPublicacaoMeuPerfil">
                   <div className="cardUsuarioPublicacaoMeuPerfil">
@@ -662,285 +686,276 @@ const ModalMinhaPublicacao = ({ isOpen, setModalOpen, accessToken, idPublicacao,
 
                             <div className='modalOpcoesPublicacaoMeuPerfil'>
 
-                              <div onClick={() => {
-
-                              }}
-
-                                className='opcaoDenunciarPublicacaoMeuPerfil'
-                              >
-
-                                <p className='textoDenunciarPublicacaoMeuPerfil'>
-                                  Denunciar publicação
-                                </p>
-
-                              </div>
+                              <p className='textoDenunciarPublicacaoMeuPerfil'>
+                                Sem opções disponiveis.
+                              </p>
 
                             </div>
 
-                          )
+                    )
 
-                        )
+                    )
                       }
-                    </div>
-
                   </div>
-                </div>
 
-                <div className='containerDadosPublicacaoMeuPerfil__listaDadosPublicacaoMeuPerfil'>
+                </div>
+              </div>
+
+              <div className='containerDadosPublicacaoMeuPerfil__listaDadosPublicacaoMeuPerfil'>
+
+                {
+                  dadosPublicacao === undefined ? (
+                    <p className='carregandoPublicacao'>Carregando...</p>
+                  ) : (
+                    <div className='listaDadosPublicacaoMeuPerfil__textoPublicacaoMeuPerfil'>
+                      <h1 className='listaDadosPublicacaoMeuPerfil__tituloPublicacaoMeuPerfil'>{dadosPublicacao.publicacao.titulo}</h1>
+                      <p className='listaDadosPublicacaoMeuPerfil__descricaoPublicacaoMeuPerfil'>{dadosPublicacao.publicacao.descricao}</p>
+                    </div>
+                  )
+                }
+
+                <div className='listaComentarioMeuPerfil'>
 
                   {
-                    dadosPublicacao === undefined ? (
-                      <p className='carregandoPublicacao'>Carregando...</p>
+                    comentario == 404 ? (
+                      <p>Sem Comentários</p>
                     ) : (
-                      <div className='listaDadosPublicacaoMeuPerfil__textoPublicacaoMeuPerfil'>
-                        <h1 className='listaDadosPublicacaoMeuPerfil__tituloPublicacaoMeuPerfil'>{dadosPublicacao.publicacao.titulo}</h1>
-                        <p className='listaDadosPublicacaoMeuPerfil__descricaoPublicacaoMeuPerfil'>{dadosPublicacao.publicacao.descricao}</p>
-                      </div>
+                      comentario === undefined ? (
+                        <p>Carregando...</p>
+                      ) : (
+
+                        comentario.comentarios.map((item, indice) => (
+
+                          <ComentarioPublicacaoMeuPerfil
+                            fotoUsuario={item.usuario.foto}
+                            idUsuarioAtual={id}
+                            idUsuarioComentario={item.id_usuario}
+                            mensagemComentario={item.mensagem}
+                            nomeUsuario={item.usuario.nome_de_usuario}
+                            idComentario={item.id}
+                            accessToken={accessToken}
+                            pegarComentarios={() => {
+                              pegarComentarios()
+                            }}
+                            key={item.id}
+                          ></ComentarioPublicacaoMeuPerfil>
+
+                        ))
+                      )
                     )
+
                   }
 
-                  <div className='listaComentarioMeuPerfil'>
-
-                    {
-                      comentario == 404 ? (
-                        <p>Sem Comentários</p>
-                      ) : (
-                        comentario === undefined ? (
-                          <p>Carregando...</p>
-                        ) : (
-
-                          comentario.comentarios.map((item, indice) => (
-
-                            <ComentarioPublicacaoMeuPerfil
-                              fotoUsuario={item.usuario.foto}
-                              idUsuarioAtual={id}
-                              idUsuarioComentario={item.id_usuario}
-                              mensagemComentario={item.mensagem}
-                              nomeUsuario={item.usuario.nome_de_usuario}
-                              idComentario={item.id}
-                              accessToken={accessToken}
-                              pegarComentarios={() => {
-                                pegarComentarios()
-                              }}
-                              key={item.id}
-                            ></ComentarioPublicacaoMeuPerfil>
-
-                          ))
-                        )
-                      )
-
-                    }
-
-                  </div>
                 </div>
-
-                <div className='containerDadosPublicacaoMeuPerfil__campoInserirComentario'>
-                  <InputGlobal
-                    type={'email'}
-                    emailWeb={true}
-                    placeholder={'Escreva um comentário...'}
-                    value={comentar}
-                    onChange={setComentar}
-                  ></InputGlobal>
-
-                  <img onClick={() => {
-                    adicionarComentario()
-                  }} src={Enviar} alt="" className='iconeInserirComentario' />
-                </div>
-
               </div>
+
+              <div className='containerDadosPublicacaoMeuPerfil__campoInserirComentario'>
+                <InputGlobal
+                  type={'email'}
+                  emailWeb={true}
+                  placeholder={'Escreva um comentário...'}
+                  value={comentar}
+                  onChange={setComentar}
+                ></InputGlobal>
+
+                <img onClick={() => {
+                  adicionarComentario()
+                }} src={Enviar} alt="" className='iconeInserirComentario' />
+              </div>
+
             </div>
           </div>
+        </div >
         </>
       ) : (
-        <>
-          <div>
+  <>
+    <div>
 
-            <div className='modalBackgroundMeuPerfil'></div>
+      <div className='modalBackgroundMeuPerfil'></div>
 
-            <div className='containerEditarPublicacaoMeuPerfil'>
+      <div className='containerEditarPublicacaoMeuPerfil'>
 
-              <div className='containerEditarPublicacao__containerImagens'>
+        <div className='containerEditarPublicacao__containerImagens'>
 
-                <div className='containerImagens'>
-                  <img src={Fechar} alt="Voltar" className='setaVoltar' onClick={() => {
-                    setEditar(!editar)
-                    setDescricao(descricaoPublicacao)
-                    setTitulo(tituloPublicacao)
-                    setClique(!clique)
-                    setImageURL(anexosPublicacao)
-                  }
-                  } />
-                </div>
+          <div className='containerImagens'>
+            <img src={Fechar} alt="Voltar" className='setaVoltar' onClick={() => {
+              setEditar(!editar)
+              setDescricao(descricaoPublicacao)
+              setTitulo(tituloPublicacao)
+              setClique(!clique)
+              setImageURL(anexosPublicacao)
+            }
+            } />
+          </div>
 
-                <FotoPublicacao
-                  imageURL={imageURL}
-                  func={onImageChange}
-                  setImageURL={setImageURL}
-                ></FotoPublicacao>
+          <FotoPublicacao
+            imageURL={imageURL}
+            func={onImageChange}
+            setImageURL={setImageURL}
+          ></FotoPublicacao>
 
-              </div>
+        </div>
 
-              <div className='containerEditarPublicacao__containerFormulario'>
+        <div className='containerEditarPublicacao__containerFormulario'>
 
-                <div className='containerFormulario__iconeSalvarPublicacaoMeuPerfil'>
-                  <i onClick={() => {
-                    editarPublicacao()
-                  }} className='iconeSalvarPublicacaoMeuPerfil'>{IconObject.salvarMeuPerfil}</i>
-                </div>
+          <div className='containerFormulario__iconeSalvarPublicacaoMeuPerfil'>
+            <i onClick={() => {
+              editarPublicacao()
+            }} className='iconeSalvarPublicacaoMeuPerfil'>{IconObject.salvarMeuPerfil}</i>
+          </div>
 
-                <div className='containerFormulario'>
+          <div className='containerFormulario'>
 
 
+            {
+
+              dadosPublicacao == undefined ? (
+                <p>Carregando</p>
+              ) : (
+                <InputGlobal
+                  type={'email'}
+                  placeholder={'Título'}
+                  emailWeb={true}
+                  onChange={setTitulo}
+                  value={titulo}
+                ></InputGlobal>
+              )
+
+            }
+
+
+            {
+
+              dadosPublicacao == undefined ? (
+                <p>Carregando</p>
+              ) : (
+                <FormDescricao
+                  type={'descricao'}
+                  placeholder={'Dígite uma descrição'}
+                  onChange={setDescricao}
+                  value={descricao}
+                ></FormDescricao>
+              )
+
+            }
+
+
+
+            <div className='containerEditarTags'>
+
+              <p className='tags'>TAGS</p>
+
+              <div className='containerTagsEditarPublicacao'>
+
+                <div className='tagsListEditarPublicacao'>
                   {
-
-                    dadosPublicacao == undefined ? (
+                    tags.length == 0 ? (
                       <p>Carregando</p>
                     ) : (
-                      <InputGlobal
-                        type={'email'}
-                        placeholder={'Título'}
-                        emailWeb={true}
-                        onChange={setTitulo}
-                        value={titulo}
-                      ></InputGlobal>
-                    )
-
-                  }
+                      tags.map((item, indice) => {
 
 
-                  {
+                        if (item.selecao == true) {
+                          return (
+                            <BotaoTag
+                              text={item.nome}
+                              key={item.id_tag}
+                              selecao={item.selecao}
+                              option={() => {
+                                tags.map((tag, indice) => {
+                                  if (item.id_tag == tag.id_tag) {
+                                    tags.splice(indice, 1)
 
-                    dadosPublicacao == undefined ? (
-                      <p>Carregando</p>
-                    ) : (
-                      <FormDescricao
-                        type={'descricao'}
-                        placeholder={'Dígite uma descrição'}
-                        onChange={setDescricao}
-                        value={descricao}
-                      ></FormDescricao>
-                    )
+                                    const letTags = [...tags]
 
-                  }
+                                    letTags.push({
+                                      id_tag: item.id_tag,
+                                      nome: item.nome,
+                                      id_categoria: item.id_categoria,
+                                      imagem: item.imagem,
+                                      nome_categoria: item.nome_categoria
+                                    })
 
+                                    const letTagsSelecionadas = [...tagsSelecionadas]
 
+                                    letTagsSelecionadas.map((letItem, letIndice) => {
+                                      if (item.id_tag == letItem.id_tag) {
+                                        letTagsSelecionadas.splice(letIndice, 1)
+                                      }
+                                    })
 
-                  <div className='containerEditarTags'>
+                                    setTags(letTags)
 
-                    <p className='tags'>TAGS</p>
-
-                    <div className='containerTagsEditarPublicacao'>
-
-                      <div className='tagsListEditarPublicacao'>
-                        {
-                          tags.length == 0 ? (
-                            <p>Carregando</p>
-                          ) : (
-                            tags.map((item, indice) => {
-                              
-
-                              if (item.selecao == true) {
-                                return (
-                                  <BotaoTag
-                                    text={item.nome}
-                                    key={item.id_tag}
-                                    selecao={item.selecao}
-                                    option={() => {
-                                      tags.map((tag, indice) => {
-                                        if (item.id_tag == tag.id_tag) {
-                                          tags.splice(indice, 1)
-
-                                          const letTags = [...tags]
-
-                                          letTags.push({
-                                            id_tag: item.id_tag,
-                                            nome: item.nome,
-                                            id_categoria: item.id_categoria,
-                                            imagem: item.imagem,
-                                            nome_categoria: item.nome_categoria
-                                          })
-
-                                          const letTagsSelecionadas = [...tagsSelecionadas]
-
-                                          letTagsSelecionadas.map((letItem, letIndice) => {
-                                            if (item.id_tag == letItem.id_tag) {
-                                              letTagsSelecionadas.splice(letIndice, 1)
-                                            }
-                                          })
-
-                                          setTags(letTags)
-
-                                          setTagsSelecionadas(letTagsSelecionadas)
-                                        }
-                                      })
-                                    }}
-                                  ></BotaoTag>
-                                )
-                              } else {
-                                return (
-                                  <BotaoTag
-                                    key={item.id_tag}
-                                    text={item.nome}
-                                    option={() => {
+                                    setTagsSelecionadas(letTagsSelecionadas)
+                                  }
+                                })
+                              }}
+                            ></BotaoTag>
+                          )
+                        } else {
+                          return (
+                            <BotaoTag
+                              key={item.id_tag}
+                              text={item.nome}
+                              option={() => {
 
 
 
-                                      tags.map((tag, indice) => {
-                                        if (item.id_tag == tag.id_tag) {
+                                tags.map((tag, indice) => {
+                                  if (item.id_tag == tag.id_tag) {
 
-                                          tags.splice(indice, 1)
+                                    tags.splice(indice, 1)
 
-                                          const letTags = [...tags]
+                                    const letTags = [...tags]
 
-                                          letTags.unshift({
-                                            id_tag: item.id_tag,
-                                            nome: item.nome,
-                                            id_categoria: item.id_categoria,
-                                            imagem: item.imagem,
-                                            nome_categoria: item.nome_categoria,
-                                            selecao: true
-                                          })
+                                    letTags.unshift({
+                                      id_tag: item.id_tag,
+                                      nome: item.nome,
+                                      id_categoria: item.id_categoria,
+                                      imagem: item.imagem,
+                                      nome_categoria: item.nome_categoria,
+                                      selecao: true
+                                    })
 
-                                          setTags(letTags)
+                                    setTags(letTags)
 
-                                          const letTagsSelecionadas = [...tagsSelecionadas]
+                                    const letTagsSelecionadas = [...tagsSelecionadas]
 
-                                          letTagsSelecionadas.unshift({
-                                            id_tag: item.id_tag,
-                                            novo: true
-                                          })
+                                    letTagsSelecionadas.unshift({
+                                      id_tag: item.id_tag,
+                                      novo: true
+                                    })
 
-                                          setTagsSelecionadas(letTagsSelecionadas)
+                                    setTagsSelecionadas(letTagsSelecionadas)
 
-                                        }
-                                      })
+                                  }
+                                })
 
 
-                                    }}
-                                  ></BotaoTag>
-                                )
-                              }
-                            })
+                              }}
+                            ></BotaoTag>
                           )
                         }
-                      </div>
-
-                    </div>
-                  </div>
+                      })
+                    )
+                  }
                 </div>
 
               </div>
             </div>
           </div>
-        </>
-      )
+
+        </div>
+      </div>
+    </div>
+  </>
+)
     )
   } else {
-    return (
-      null
-    )
-  }
+  return (
+    null
+  )
+}
 }
 
 export default ModalMinhaPublicacao

@@ -24,7 +24,7 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
         } catch (error) {
             console.log(error)
         }
-    }
+    } 
 
     return (
         <>
@@ -50,7 +50,7 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                                     verMais == false ? (
 
-                                        <p className="mensagemComentarioReduzido">{mensagemComentario.slice(0, 50)} <b onClick={() => {
+                                        <p className="mensagemComentarioReduzidoMeuPerfil">{mensagemComentario.slice(0, 20)} <b onClick={() => {
                                             setVerMais(!verMais)
                                         }} className='botaoVerMaisComentarioMeuPerfil'> ver mais</b> </p>
 
@@ -89,13 +89,13 @@ function ComentarioPublicacaoMeuPerfil({ pegarComentarios, accessToken, fotoUsua
 
                         <div>
 
-                            <div className='modalEscuroExplorar' onClick={() => {
+                            <div className='modalEscuroMeuPerfil' onClick={() => {
                                 setOpcoesComentario(!opcoesComentario)
                             }}></div>
 
                             {
                                 idUsuarioAtual == idUsuarioComentario ? (
-                                    <div className="modalOpcoesComentario">
+                                    <div className="modalOpcoesComentarioMeuPerfil">
                                         <div onClick={
                                             () => {
                                                 apagarComentario()

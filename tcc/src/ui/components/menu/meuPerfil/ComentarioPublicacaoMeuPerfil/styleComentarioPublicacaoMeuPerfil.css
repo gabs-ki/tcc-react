@@ -51,13 +51,14 @@
     color: var(--contrast-color);
 }
 
-.mensagemComentarioReduzido {
+.mensagemComentarioReduzidoMeuPerfil {
     font-size: 1rem;
     font-weight: 300;
     position: relative;
     top: -30px;
     inline-size: 600px;
     height: 20px;
+    color: var(--contrast-color);
 }
 
 .botaoVerMaisComentarioMeuPerfil {
@@ -122,7 +123,7 @@
     filter: opacity(60%);
 }
 
-.modalOpcoesComentario {
+.modalOpcoesComentarioMeuPerfil {
     position: fixed;
     z-index: 1001;
     width: 200px;
@@ -173,4 +174,146 @@
     background-color: #A09CA2;
     cursor: pointer;
     border-radius: 20px;
+}
+
+.modalEscuroMeuPerfil {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #A09CA2;
+    border-radius: 20px;
+    filter: opacity(60%);
+}
+
+@media (max-width: 1500px) {
+    .containerDados__containerTextosMeuPerfil {    
+        width: 100%;
+    }
+
+    .mensagemComentarioMeuPerfil {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+    .botaoOpcoesComentarioMeuPerfil {
+        padding-right: 100%;
+    }
+
+
+    .modalOpcoesComentarioMeuPerfil {
+        top: 40%;
+        left: 40%;
+    }
+    
+
+}
+
+@media (max-width: 1300px) {
+    .containerDados__containerTextosMeuPerfil {    
+        width: 100%;
+    }
+
+    .mensagemComentarioMeuPerfil {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+
+    .modalOpcoesComentarioMeuPerfil {
+        top: 50%;
+        left: 40%;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .containerDados__containerTextosMeuPerfil {    
+        width: 100%;
+    }
+
+    .mensagemComentarioMeuPerfil {
+        width: 300px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+    .modalEscuroMeuPerfil {
+        height: 140%;
+        max-height: 200%;
+    }
+
+    .modalOpcoesComentarioMeuPerfil {
+        top: 30%;
+        left: 40%;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .containerDados__containerTextosMeuPerfil {    
+        width: 100%;
+    }
+
+    .mensagemComentarioMeuPerfil {
+        width: 300px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+    .modalEscuroMeuPerfil {
+        height: 140%;
+        max-height: 200%;
+    }
+
+    .modalOpcoesComentarioMeuPerfil {
+        top: 30%;
+        left: 40%;
+    }
+
+    
+}
+
+@media (max-width: 800px) {
+    .containerDados__containerTextosMeuPerfil {    
+        width: 100%;
+    }
+
+    .mensagemComentarioMeuPerfil {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .containerDados__containerTextosMeuPerfil {    
+        width: 100%;
+    }
+
+    .mensagemComentarioMeuPerfil {
+        width: 200px;
+        overflow-wrap: break-word;
+        text-wrap: wrap;
+    }
+
+
+    .modalEscuroMeuPerfil {
+        height: 153%;
+        max-height: 200%;
+    }
+
+    .modalOpcoesComentarioMeuPerfil {
+        top: 30%;
+        left: 25%;
+    }
+}
+
+@media (max-width: 300px) {
+    
 }

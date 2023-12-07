@@ -152,3 +152,266 @@
 .carregandoPerfil {
     color: var(--contrast-color);
 }
+
+@media (max-width: 2000px) {
+    .containerPerfil__containerCardPerfil {
+        height: 70%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        height: 75%;
+    }
+
+    .marcaPerfilSelecionado {
+        height: 65%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .containerPerfil__containerCardPerfil {
+        height: 60%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        height: 75%;
+    }
+
+    .marcaPerfilSelecionado {
+        height: 65%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .containerPerfil__containerCardPerfil {
+        height: 60%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        height: 60%;
+    }
+
+    .marcaPerfilSelecionado {
+        height: 55%;
+    }
+
+   
+}
+
+@media (max-width: 950px) {
+    .containerPerfil {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        left: 30px;
+    }
+
+    .secaoMeuPerfil__apresentacaoPerfil {
+        padding: 32px;
+    }
+
+    .containerPerfil__containerCardPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        width: 100%;
+    }
+
+    .marcaPerfilSelecionado {
+        width: 95%;
+        height: 93%;
+        position: absolute;
+        left: 2%;
+        top: 0%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        width: 106%;
+        height: 100%;
+        position: absolute;
+        left: -4%;
+        top: 0%;
+    }
+
+    .secaoMeuPerfil__descricaoPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .containerPerfil {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        left: 30px;
+    }
+
+    .containerPerfil__containerCardPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        width: 100%;
+    }
+
+    .marcaPerfilSelecionado {
+        width: 100%;
+        height: 88%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .secaoMeuPerfil__descricaoPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .containerPerfil {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        left: 30px;
+    }
+
+    .containerPerfil__containerCardPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        width: 100%;
+    }
+
+    .marcaPerfilSelecionado {
+        width: 100%;
+        height: 83%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        width: 100%;
+        height: 93%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .secaoMeuPerfil__descricaoPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .containerPerfil {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        left: 30px;
+    }
+
+    .containerPerfil__containerCardPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        width: 100%;
+    }
+
+    .marcaPerfilSelecionado {
+        width: 100%;
+        height: 63%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .secaoMeuPerfil__descricaoPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 300px) {
+
+    .containerPerfil {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        left: 30px;
+    }
+
+    .containerPerfil__containerCardPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        width: 100%;
+    }
+
+    .marcaPerfilSelecionado {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .marcaTransparentePerfilSelecionado {
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    .secaoMeuPerfil__descricaoPerfil {
+        width: 100%;
+    }
+
+    .containerPerfil__containerPublicacoes {
+        align-items: center;
+        justify-content: center;
+    }
+}
