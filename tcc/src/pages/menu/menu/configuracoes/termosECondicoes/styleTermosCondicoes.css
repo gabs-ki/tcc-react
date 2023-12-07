@@ -24,7 +24,7 @@
 .containerTermosCondicoes_main{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 50%;
     height: 80vh;

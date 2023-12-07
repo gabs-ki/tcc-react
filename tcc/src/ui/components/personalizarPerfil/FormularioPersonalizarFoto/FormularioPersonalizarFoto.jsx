@@ -119,7 +119,7 @@ function FormularioPersonalizarFoto({}) {
               <img src={setaEsquerda} alt="/personalizar-perfil/personalizar-nome" />
           </Link>
 
-          <i onClick={enviarDados}>
+          <i className='itemPoint' onClick={enviarDados}>
             <img src={setaDireita} alt="/personalizar-perfil/personalizar-localizacao" />
           </i>
 

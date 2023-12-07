@@ -62,7 +62,7 @@ const FormularioPersonalizarLocalizacao = ({}) => {
               <img src={setaEsquerda} alt="/personalizar-perfil/personalizar-nome" />
           </Link>
 
-          <i onClick={enviarLocalizacao}>
+          <i className='itemPoint' onClick={enviarLocalizacao}>
            <img src={setaDireita} alt="/personalizar-perfil/personalizar-localizacao" />
           </i>
             
