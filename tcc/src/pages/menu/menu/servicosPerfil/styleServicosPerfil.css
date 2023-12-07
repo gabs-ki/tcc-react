@@ -65,7 +65,7 @@
     width: 50px;
 }
 
-.modalBackground {
+.modalBackgroundFiltrar {
     position: fixed;
     left: 0;
     top: 0;
@@ -102,4 +102,37 @@
 
 .iconeVoltarFiltro {
     cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+    
+}
+
+@media (max-width: 1100px) {
+   
+}
+
+@media (max-width: 1000px) {
+
+}
+
+@media (max-width: 800px) {
+   
+}
+
+@media (max-width: 600px) {
+   .containerServicosPerfil__header {
+    flex-direction: column;
+    gap: 16px;
+   }
+
+   .containerFiltrar {
+    width: 90vw;
+    left: 5%;
+   }
+
+   .modalBackgroundFiltrar {
+    width: 100vw;
+    height: 100vh;
+   }
 }

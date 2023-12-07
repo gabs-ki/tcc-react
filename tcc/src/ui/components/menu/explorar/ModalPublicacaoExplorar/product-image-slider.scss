@@ -1,5 +1,5 @@
-.swiper{
-    .swiper-slide{
+.swiper {
+    .swiper-slide {
         overflow: hidden;
         position: relative;
         display: flex;
@@ -8,7 +8,7 @@
         height: 15vh;
     }
 
-    .slide_post{
+    .slide_post {
         overflow: hidden;
         position: relative;
         display: flex;
@@ -17,7 +17,7 @@
         height: 50vh;
     }
 
-    .slide_item{
+    .slide_item {
         width: 55vh;
         height: 40vh;
         align-items: center;
@@ -27,12 +27,108 @@
         box-shadow: 10px 10px #A89BFF;
     }
 
-    .swiper-button-prev{
+    .swiper-button-prev {
         color: #A89BFF;
     }
 
-    .swiper-button-next{
+    .swiper-button-next {
         color: #A89BFF;
+    }
+
+    
+    
+
+}
+
+@media (max-width: 1300px) {}
+
+@media (max-width: 1100px) {
+    .swiper {
+        width: 70vw;
+        height: 35vh;
+        align-items: center;
+        box-shadow: 1px 1px #FFFFFF;
+        border-radius: 10px;
+    } 
+
+    .swiper .swiper-slide {
+        padding-bottom: 130px;
+        align-items: center;    
+    }
+
+    .swiper .swiper_post {
+        padding: 24px;
+      
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .swiper {
+        width: 70vw;
+        height: 35vh;
+        align-items: center;
+        box-shadow: 1px 1px #FFFFFF;
+        border-radius: 10px;
+    } 
+
+    .swiper .swiper-slide {
+        padding-bottom: 130px;
+        align-items: center;    
+    }
+
+    .swiper .swiper_post {
+        padding: 24px;
+      
     }
 
 }
+
+@media (max-width: 800px) {
+
+    .swiper {
+        width: 70vw;
+        height: 35vh;
+        align-items: center;
+        box-shadow: 1px 1px #FFFFFF;
+        border-radius: 10px;
+    } 
+
+    .swiper .swiper-slide {
+        padding-bottom: 130px;
+        align-items: center;    
+    }
+
+    .swiper .swiper_post {
+        padding: 24px;
+      
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    .swiper {
+       
+        width: 80vw;
+        height: 35vh;
+        align-items: center;
+        box-shadow: 1px 1px #FFFFFF;
+        border-radius: 10px;
+    } 
+
+    .swiper .swiper-slide {
+        padding-bottom: 80px;
+        align-items: center;    
+    }
+
+    .swiper .swiper_post {
+        padding: 24px;
+      
+    }
+       
+
+   
+}
+

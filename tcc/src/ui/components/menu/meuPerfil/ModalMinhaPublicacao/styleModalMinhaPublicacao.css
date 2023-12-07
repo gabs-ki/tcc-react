@@ -68,7 +68,7 @@
     background-color: #f7e7ff;
 }
 
-.formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfil {
+.formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfilUm {
     background-color: var(--default-color);
     width: 50%;
     height: 100%;
@@ -402,4 +402,289 @@
 
 .responderComentario{
     color: black;
+}
+
+@media (max-width: 1000px) {
+    .formularioPublicacaoMeuPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .formularioPublicacaoMeuPerfil__containerImagensPublicacaoMeuPerfil {
+        width: 100vw;
+        height: 50vh;
+        gap: 16px;
+    }
+
+    .formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfil {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .containerImagensPublicacaoMeuPerfil__itemVoltar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .containerImagensPublicacaoMeuPerfil__listaImagensPublicacaoMeuPerfil {
+        width: 100%;
+        height: 100%;
+    }
+
+    .listaComentarioMeuPerfil {
+        width: 100%;
+        height: 100%;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        overflow-x: hidden;
+        gap: 72px;
+    }
+
+    .modalOpcoesPublicacaoMeuPerfil {
+        z-index: 1100;
+        top: 40%;
+        left: 25%;
+        position: fixed;
+    }
+
+    
+    .containerEditarPublicacaoMeuPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+
+    }
+
+    .containerEditarPublicacao__containerImagens {
+        width: 100vw;
+        height: 50vh;
+        padding: 8px;
+    }
+
+    .containerEditarPublicacao__containerFormulario {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .containerEditarTags {
+        align-items: center;
+    }
+
+    .containerTagsEditarPublicacao {
+        
+        width: 90vw;
+    }
+
+    .tagsListEditarPublicacao {
+       
+        width: 90vw;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .formularioPublicacaoMeuPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .formularioPublicacaoMeuPerfil__containerImagensPublicacaoMeuPerfil {
+        width: 100vw;
+        height: 50vh;
+        gap: 16px;
+    }
+
+    .formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfilUm {
+        width: 100vw;
+        height: fit-content;
+    }
+
+    .containerImagensPublicacaoMeuPerfil__itemVoltar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .containerImagensPublicacaoMeuPerfil__listaImagensPublicacaoMeuPerfil {
+        width: 100%;
+        height: 100%;
+    }
+
+    .listaComentarioMeuPerfil {
+        width: 100%;
+        height: 100%;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        overflow-x: hidden;
+        gap: 64px;
+    }
+
+    .modalOpcoesPublicacaoMeuPerfil {
+        z-index: 1100;
+        top: 40%;
+        left: 25%;
+        position: fixed;
+    }
+
+    
+    .containerEditarPublicacaoMeuPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+
+    }
+
+    .containerEditarPublicacao__containerImagens {
+        width: 100vw;
+        height: 50vh;
+        padding: 8px;
+    }
+
+    .containerEditarPublicacao__containerFormulario {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .containerEditarTags {
+        align-items: center;
+    }
+
+    .containerTagsEditarPublicacao {
+        
+        width: 90vw;
+    }
+
+    .tagsListEditarPublicacao {
+       
+        width: 90vw;
+    }
+
+    .listaDadosPublicacaoMeuPerfil__descricaoPublicacaoMeuPerfil {
+        height: fit-content;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .formularioPublicacaoMeuPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .formularioPublicacaoMeuPerfil__containerImagensPublicacaoMeuPerfil {
+        width: 100vw;
+        height: 50vh;
+        gap: 8px;
+    }
+
+    .formularioPublicacaoMeuPerfil__containerDadosPublicacaoMeuPerfil {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .containerImagensPublicacaoMeuPerfil__itemVoltar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .containerImagensPublicacaoMeuPerfil__listaImagensPublicacaoMeuPerfil {
+        width: 100%;
+        height: 100%;
+    }
+
+    .listaComentarioMeuPerfil {
+        width: 100%;
+        height: 100%;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        overflow-x: hidden;
+        gap: 64px;
+    }
+
+    .modalOpcoesPublicacaoMeuPerfil {
+        z-index: 1100;
+        top: 40%;
+        left: 25%;
+        position: fixed;
+    }
+
+    
+    .containerEditarPublicacaoMeuPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+
+    }
+
+    .containerEditarPublicacao__containerImagens {
+        width: 100vw;
+        height: 50vh;
+        padding: 8px;
+    }
+
+    .containerEditarPublicacao__containerFormulario {
+        width: 100vw;
+        height: 100%;
+    }
+
+    .containerEditarTags {
+        align-items: center;
+    }
+
+    .containerTagsEditarPublicacao {
+        
+        width: 90vw;
+    }
+
+    .tagsListEditarPublicacao {
+       
+        width: 90vw;
+    }
+}
+
+@media (max-width: 300px) {
+
+    .containerFormulario {
+        width: 100vw;
+    }
+
 }

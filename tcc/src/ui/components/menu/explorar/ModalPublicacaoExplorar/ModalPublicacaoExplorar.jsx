@@ -806,7 +806,7 @@ const ModalPublicacaoExplorar = ({ isOpen, atualizar, setAtualizar, setModalOpen
 
             <div className='containerEditarPublicacaoExplorar'>
 
-              <div className='containerEditarPublicacao__containerImagens'>
+              <div className='containerEditarPublicacao__containerImagensExplorar'>
 
                 <div className='containerImagens'>
                   <img src={Fechar} alt="Voltar" className='setaVoltar' onClick={() => {
@@ -828,7 +828,7 @@ const ModalPublicacaoExplorar = ({ isOpen, atualizar, setAtualizar, setModalOpen
 
               </div>
 
-              <div className='containerEditarPublicacao__containerFormulario'>
+              <div className='containerEditarPublicacao__containerFormularioExplorar'>
 
                 <div className='containerFormulario__iconeSalvarPublicacaoMeuPerfil'>
                   <i onClick={() => {
@@ -873,13 +873,13 @@ const ModalPublicacaoExplorar = ({ isOpen, atualizar, setAtualizar, setModalOpen
 
 
 
-                  <div className='containerEditarTags'>
+                  <div className='containerEditarTagsExplorar'>
 
                     <p className='tags'>TAGS</p>
 
-                    <div className='containerTagsEditarPublicacao'>
+                    <div className='containerTagsEditarPublicacaoExplorar'>
 
-                      <div className='tagsListEditarPublicacao'>
+                      <div className='tagsListEditarPublicacaoExplorar'>
                         {
                           tags.length == 0 ? (
                             <p>Carregando</p>

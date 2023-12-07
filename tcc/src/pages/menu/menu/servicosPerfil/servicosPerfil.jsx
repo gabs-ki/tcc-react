@@ -159,7 +159,7 @@ const ServicosPerfil = () => {
               ) : (
 
                 <>
-                  <div className='modalBackground'></div>
+                  <div className='modalBackgroundFiltrar'></div>
 
                   <div className="containerFiltrar">
 
@@ -215,11 +215,12 @@ const ServicosPerfil = () => {
 
                     <CardPerfil
                       onClick={() => {
-                        setIdPerfil(item.id)
+                        setIdPerfil(item.id_usuario)
 
                         navigator('/menu/servicos/perfil/perfil-selecionado')
                       }}
                       key={item.id}
+                      
                       nome={item.nome}
                       img={item.foto}
                     ></CardPerfil>

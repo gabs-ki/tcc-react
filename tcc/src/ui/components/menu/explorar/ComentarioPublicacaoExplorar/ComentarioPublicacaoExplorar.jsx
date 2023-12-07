@@ -49,7 +49,7 @@ function ComentarioPublicacaoExplorar({ pegarComentarios, accessToken, fotoUsuar
 
                                     verMais == false ? (
 
-                                        <p className="mensagemComentarioReduzido">{mensagemComentario.slice(0, 50)} <b onClick={() => {
+                                        <p className="mensagemComentarioReduzido">{mensagemComentario.slice(0, 20)} <b onClick={() => {
                                             setVerMais(!verMais)
                                         }} className='botaoVerMaisComentarioExplorar'> ver mais</b> </p>
 
@@ -120,18 +120,10 @@ function ComentarioPublicacaoExplorar({ pegarComentarios, accessToken, fotoUsuar
                                     </div>
                                 ) : (
                                     <div className="modalOpcoesComentario">
-                                        <div onClick={
-                                            () => {
 
-                                            }
-                                        } className='opcaoDenunciarComentario'>
-
-                                            <p className='textoDenunciarComentario'>
-                                                Denunciar comentário
-                                            </p>
-
-                                        </div>
-
+                                        <p className='textoDenunciarComentario'>
+                                            Sem opções disponiveis.
+                                        </p>
 
 
                                     </div>

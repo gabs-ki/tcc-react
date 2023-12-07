@@ -1,4 +1,4 @@
-.formulario{
+.formulario {
     width: 30vw;
     height: 120px;
     background-color: var(--input-color);
@@ -10,7 +10,7 @@
     padding: 10px;
 }
 
-.formulario_descricao{
+.formulario_descricao {
     width: 350px;
     height: 180px;
     background-color: var(--input-color);
@@ -22,7 +22,7 @@
     padding: 10px;
 }
 
-.description{
+.description {
     width: 40vw;
     height: 180px;
     background-color: var(--input-color);
@@ -34,6 +34,24 @@
     padding: 10px;
 }
 
-textarea{
+textarea {
     resize: none;
+}
+
+@media (max-width: 1500px) {}
+
+@media (max-width: 1300px) {}
+
+@media (max-width: 1100px) {}
+
+@media (max-width: 1000px) {}
+
+@media (max-width: 800px) {}
+
+@media (max-width: 600px) {}
+
+@media (max-width: 300px) {
+    .formulario_descricao {
+        width: 100%;
+    }
 }

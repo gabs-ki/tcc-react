@@ -16,7 +16,7 @@ function PerfilSelecionado() {
 
   const { accessToken } = useContext(UserContext)
   const { idPerfil } = useContext(UserContext)
-  const [ modalTags, setModalTags ] = useState(false)
+  const [modalTags, setModalTags] = useState(false)
 
   const [tags, setTags] = useState([])
 
@@ -24,7 +24,7 @@ function PerfilSelecionado() {
 
   useEffect(() => {
     console.log(idPerfil)
-  },[idPerfil])
+  }, [idPerfil])
 
   const getPerfil = async () => {
     try {
@@ -56,59 +56,59 @@ function PerfilSelecionado() {
     <>
       <div className="containerPerfil">
 
-      {
-        modalTags == false ? (
+        {
+          modalTags == false ? (
 
-          null
+            null
 
-        ) : (
+          ) : (
 
-          <div className='modalTagsMeuPerfil'>
+            <div className='modalTagsMeuPerfil'>
 
-            <div className="modalBackgroundTagsMeuPerfil" onClick={() => {
-              setModalTags(!modalTags)
-            }}></div>
+              <div className="modalBackgroundTagsMeuPerfil" onClick={() => {
+                setModalTags(!modalTags)
+              }}></div>
 
-            <div className="containerTagsMeuPerfil">
+              <div className="containerTagsMeuPerfil">
 
-              <div className='iconeFecharMensagem'>
-                <i onClick={() => {
-                  setModalTags(!modalTags)
-                }}>{IconObject.voltarOuCancelarColorido}</i>
-              </div>
+                <div className='iconeFecharMensagem'>
+                  <i onClick={() => {
+                    setModalTags(!modalTags)
+                  }}>{IconObject.voltarOuCancelarColorido}</i>
+                </div>
 
-              <div className='containerTagsMeuPerfil__listaTagsMeuPerfil'>
+                <div className='containerTagsMeuPerfil__listaTagsMeuPerfil'>
 
-                {
+                  {
 
-                  user.usuario.tags === undefined ? (
+                    user.usuario.tags === undefined ? (
 
-                    <p>Carregando</p>
+                      <p>Carregando</p>
 
-                  ) : (
+                    ) : (
 
-                    user.usuario.tags.map((item, indice) => (
+                      user.usuario.tags.map((item, indice) => (
 
-                      <TagGlobal
-                        id={item.id_tag}
-                        value={item.nome}
-                        key={indice}
-                      ></TagGlobal>
+                        <TagGlobal
+                          id={item.id_tag}
+                          value={item.nome}
+                          key={indice}
+                        ></TagGlobal>
 
-                    ))
+                      ))
 
-                  )
+                    )
 
-                }
+                  }
+
+                </div>
 
               </div>
 
             </div>
 
-          </div>
-
-        )
-      }
+          )
+        }
 
 
         <div className="containerPerfil__containerCardPerfil">
@@ -144,14 +144,14 @@ function PerfilSelecionado() {
               ) : (
                 <>
                   <div className='secaoMeuPerfil__apresentacaoPerfil'>
-                    
+
                     <Link to={"/menu/servicos"}>
                       <img src={setaEsquerda} className="botaoVoltar" />
                     </Link>
 
                     <img className='botaoChatPerfilSelecionado' src={iconeChat} onClick={() => {
 
-                      navigate('/menu/conversas',{
+                      navigate('/menu/conversas', {
                         state: {
                           id_usuario_perfil: perfil.usuario.id_usuario,
                           nome_usuario_perfil: perfil.usuario.nome,
@@ -159,11 +159,11 @@ function PerfilSelecionado() {
                         }
                       })
 
-                    }}/>
+                    }} />
 
-                    
+
                   </div>
-                  
+
                   {
                     perfil.usuario.localizacao === undefined ? (
 
@@ -186,7 +186,7 @@ function PerfilSelecionado() {
                         localizacaoEstadoPerfil={perfil.usuario.localizacao.estado}
                         fotoPerfil={perfil.usuario.foto}
                       ></CardUsuarioMeuPerfil>
-                  )
+                    )
                   }
                 </>
 
