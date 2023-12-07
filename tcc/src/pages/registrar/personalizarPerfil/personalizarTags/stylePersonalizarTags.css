@@ -14,3 +14,94 @@
     box-shadow: 0px 4px 20px 0px rgba(65, 57, 70, 0.15);
     border-radius: 30px;
 }
+
+@media (max-width: 3000px) {
+    .containerPersonalizarTags {
+        width: 80vw;
+        height: 100vh;
+        display: flex;
+        position: relative;
+        left: 10%;
+    }
+    .containerPersonalizarTags__formularioPersonalizarTags {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+    }
+}
+
+@media (max-width: 1700px) {
+   
+}
+
+@media (max-width: 1500px) {
+  
+}
+
+@media (max-width: 1300px) {
+    .containerPersonalizarTags__formularioPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+    }
+   
+}
+
+@media (max-width: 1100px) {
+   
+}
+
+@media (max-width: 1000px) {
+    .containerPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+        position: initial;
+    }
+
+    .containerPersonalizarTags__formularioPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 900px) {
+    .containerPersonalizarTags {
+        position: initial;
+    }
+}
+
+@media (max-width: 800px) {
+    .containerPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+        position: initial;
+    }
+
+    .containerPersonalizarTags__formularioPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+    }
+  
+}
+
+@media (max-width: 600px) {
+
+    .containerPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+        position: initial;
+    }
+
+    .containerPersonalizarTags__formularioPersonalizarTags {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+
+}
+
+@media (max-width: 300px) {
+    
+}

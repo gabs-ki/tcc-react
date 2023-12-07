@@ -15,6 +15,10 @@ const FormularioPersonalizarLocalizacao = ({}) => {
   const { userLocation } = useContext(UserContext)
   const { accessToken } = useContext(UserContext)
 
+  const [bairro, setBairro] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [estado, setEstado] = useState('')
+
 
   const enviarLocalizacao = async () => {
 
@@ -43,6 +47,12 @@ const FormularioPersonalizarLocalizacao = ({}) => {
 
   }
 
+  const setarLocalizacao = (bairro, cidade, estado) => {
+    setBairro(bairro)
+    setCidade(cidade)
+    setEstado(estado)
+  }
+
   return (
     <form className='formularioPersonalizarLocalizacao' action="">
 
@@ -64,7 +74,11 @@ const FormularioPersonalizarLocalizacao = ({}) => {
 
           <p className='subtitulo'>Selecione seu estado, sua cidade e seu bairro para uma melhor experiência</p>
           
-          <ComboBoxLocalizacao></ComboBoxLocalizacao>
+          <ComboBoxLocalizacao
+
+            setarLocalizacao={setarLocalizacao}
+
+          ></ComboBoxLocalizacao>
       
       </div>
 

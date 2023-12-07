@@ -85,6 +85,7 @@
     flex-direction: row;
     padding-bottom: 20px;
     gap: 20px;
+    align-items: center;
 }
 
 .inputMensagem{
@@ -219,4 +220,28 @@
 
 .iconeVoltarConversas {
     cursor: pointer;
+}
+
+.inputInserirFoto {
+    width: 100px;
+    height: 90px;
+    z-index: 1000;
+}
+
+.containerFotoChat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotoCameraChatComFoto {
+    position: fixed;
+    z-index: 900;
+    width: 40px;
+}
+
+.fotoCameraChat {
+    width: 50px;
+    position: relative;
+    top: 15px;
 }

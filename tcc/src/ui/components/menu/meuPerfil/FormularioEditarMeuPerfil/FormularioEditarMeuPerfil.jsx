@@ -25,6 +25,7 @@ import BotaoTag from '../../../personalizarPerfil/BotaoTag/BotaoTag.jsx'
 function FormularioEditarMeuPerfil({ user, aberto, open, nomePerfil, tagPerfil, cidadePerfil, estadoPerfil, bairroPerfil, descricaoPerfil, tagsPerfil, idLocalizacao, reloadUser, imgPerfil, funcLoading }) {
 
     const navigate = useNavigate()
+    uploadImage
 
     const { accessToken } = useContext(UserContext)
     const { id } = useContext(UserContext)
@@ -146,9 +147,6 @@ function FormularioEditarMeuPerfil({ user, aberto, open, nomePerfil, tagPerfil, 
     const [tagsSelecionadas, setTagsSelecionadas] = useState([])
     const [clique, setClique] = useState(false)
 
-    useEffect(() => {
-        console.log(statusResponse)
-    }, [statusResponse])
 
     const [images, setImage] = useState([])
     const [imageURL, setImageURL] = useState([])
