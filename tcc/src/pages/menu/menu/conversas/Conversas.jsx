@@ -21,9 +21,10 @@ function Conversas() {
   const [listaContatos, setListaContatos] = useState([])
   const [chatOpen, setChatOpen] = useState(false)
   const [socket, setSocket] = useState(null)
-  const [teste, setTest] = useState(location.state)
+  const [teste, setTest] = useState(location.state) 
   const [idChat, setIdChat] = useState()
   const [busca, setBusca] = useState('')
+  const [listaContatoEditada, setListaContatosEditada] = useState([])
 
   const [nomeOutroUsuario, setNomeOutroUsuario] = useState('')
   const [fotoOutroUsuario, setFotoOutroUsuario] = useState('')
@@ -40,11 +41,24 @@ function Conversas() {
     setSocket(socket)
   }
 
+
   useEffect(() => {
-    console.log(teste)
-  }, [teste])
 
+    const socketResponse = io.connect('https://socket-costurie.webpubsub.azure.com', {
+      path: "/clients/socketio/hubs/Hub"
+    })
 
+    setSocket(socketResponse)
+
+    const list = socketResponse.emit('listContacts', id)
+
+    list.on('receive_contacts', data => {
+      if (data.id_user == id) {
+        setListaContatos(data.users)
+      }
+    })
+
+  }, [])
 
   useEffect(() => {
 
@@ -64,7 +78,7 @@ function Conversas() {
       }
     })
 
-  }, [])
+  }, [teste])
 
 
 
@@ -111,11 +125,18 @@ function Conversas() {
       if (idPerfilSelecionado != null || nomePerfilSelecionado != null || fotoPerfilSelecionado != null) {
 
         if (socketResponse != null) {
+
           const chat = socketResponse.emit('createRoom', JSON.stringify({ users: listaPerfis }))
 
+        
+          chat.on('newChat')
 
-          chat.on('newChat', data => {
-            
+          const list = socketResponse.emit('listContacts', id)
+
+          list.on('receive_contacts', data => {
+            if (data.id_user == id) {
+              setListaContatos(data.users)
+            }
           })
 
         }
@@ -147,6 +168,45 @@ function Conversas() {
 
   }, [idChat])
 
+  useEffect(() => {
+    const listaContatoEditadaUser = [...listaContatos]
+
+
+    listaContatos.map((item, indice) => {
+      
+      listaContatoEditadaUser.map((user, index) => {
+
+   
+        
+        if( item.users[1].id == user.users[1].id) {
+
+          listaContatoEditadaUser.splice(index, 1, item)
+
+        }
+
+      })
+    })
+
+
+    listaContatoEditadaUser.map((userDois, indexDois) => {
+
+      listaContatos.map((imt, imtIndex) => {
+
+        if (userDois.id_chat == imt.id_chat) {
+
+          listaContatoEditadaUser.splice(indexDois, 1)
+
+        }
+
+      })
+    })
+
+    setListaContatosEditada(listaContatoEditadaUser)
+
+
+  }, [listaContatos])
+
+
 
   return (
     <>
@@ -174,17 +234,17 @@ function Conversas() {
           <div className='secaoConversas__listaConversas'>
 
             {
-              listaContatos === undefined ? (
+              listaContatoEditada === undefined ? (
 
                 <p>Carregando</p>
 
               ) : (
 
-                listaContatos.length == 0 ? (
+                listaContatoEditada.length == 0 ? (
                   <p>Esse Usuário não possui conversas</p>
                 ) : (
 
-                  listaContatos.filter((item) => {
+                  listaContatoEditada.filter((item) => {
 
                     const buscaPequena = busca.toLowerCase()
                     const nomeMinusculo = item.users[0].nome.toLowerCase()
@@ -193,6 +253,8 @@ function Conversas() {
                     return buscaPequena.toLowerCase() === '' ? item : nomeMinusculo.includes(buscaPequena)
 
                   }).map((item, index) => {
+
+                  
 
                     return (
 
