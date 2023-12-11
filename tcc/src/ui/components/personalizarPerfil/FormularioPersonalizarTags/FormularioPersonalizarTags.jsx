@@ -158,6 +158,10 @@ const FormularioPersonalizarTags = () => {
             'x-access-token' : accessToken
           }
         })
+
+        window.localStorage.setItem('id', JSON.stringify(id))
+        window.localStorage.setItem('accessToken', JSON.stringify(accessToken))
+
         
         navigator('/menu/explorar')
   
